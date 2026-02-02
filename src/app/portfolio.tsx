@@ -210,7 +210,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden pb-16 pt-8 md:pb-32 md:pt-32">
+            <section className="relative overflow-hidden pb-16 pt-8 md:pb-40 md:pt-40">
                 {/* Dashed Top Fade Grid - Light Mode */}
                 <div
                     className="pointer-events-none absolute inset-0 z-0 dark:hidden"
