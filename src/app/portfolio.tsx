@@ -486,7 +486,7 @@ export const PortfolioPage = () => {
             </div>
 
             {/* Footer */}
-            <footer className="py-8">
+            <footer className="pt-20 pb-8">
                 <div className="mx-auto max-w-6xl px-4 text-center text-base text-tertiary md:px-8">
                     <p>© Made by Joshua using Cursor/Claude Code and Figma for coding and design, deployed to Github Repo connected to Vercel for hosting</p>
                 </div>
