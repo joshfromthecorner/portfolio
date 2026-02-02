@@ -279,7 +279,7 @@ export const PortfolioPage = () => {
 
                         {/* Subheading */}
                         <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-tertiary">
-                            Experienced working in scrum product development teams across a range of sectors, including PostNL, Sunweb, BNG Bank, OVpay, NVM, Air France–KLM Cargo, Albert Heijn, and the Dutch Ministry of Health. I work in a research-driven way, using data and qualitative insights to shape solutions, which I then validate with users to build products they truly want to use.
+                            Experienced working in scrum product development teams across a range of sectors, including PostNL, Sunweb, BNG Bank, OVpay, NVM, Air France–KLM Cargo, Albert Heijn, and the Dutch Ministry of Health.
                         </p>
 
                     </div>
