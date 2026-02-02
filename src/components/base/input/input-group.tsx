@@ -5,7 +5,7 @@ import { HintText } from "@/components/base/input/hint-text";
 import type { InputBaseProps } from "@/components/base/input/input";
 import { TextField } from "@/components/base/input/input";
 import { Label } from "@/components/base/input/label";
-import { cx, sortCx } from "@/utils/cx";
+import { cx } from "@/utils/cx";
 
 interface InputPrefixProps extends HTMLAttributes<HTMLDivElement> {
     /** The position of the prefix. */
@@ -55,7 +55,7 @@ export const InputGroup = ({ size = "sm", prefix, leadingAddon, trailingAddon, l
     const hasLeading = !!leadingAddon;
     const hasTrailing = !!trailingAddon;
 
-    const paddings = sortCx({
+    const paddings = {
         sm: {
             input: cx(
                 // Apply padding styles when select element is passed as a child
@@ -72,7 +72,7 @@ export const InputGroup = ({ size = "sm", prefix, leadingAddon, trailingAddon, l
             ),
             leadingText: "pl-3.5",
         },
-    });
+    };
 
     return (
         <TextField

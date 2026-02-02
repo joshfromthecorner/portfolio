@@ -7,7 +7,7 @@ import { Group as AriaGroup, Input as AriaInput, TextField as AriaTextField } fr
 import { HintText } from "@/components/base/input/hint-text";
 import { Label } from "@/components/base/input/label";
 import { Tooltip, TooltipTrigger } from "@/components/base/tooltip/tooltip";
-import { cx, sortCx } from "@/utils/cx";
+import { cx } from "@/utils/cx";
 
 export interface InputBaseProps extends TextFieldProps {
     /** Tooltip message on hover. */
@@ -62,7 +62,7 @@ export const InputBase = ({
 
     const inputSize = context?.size || size;
 
-    const sizes = sortCx({
+    const sizes = {
         sm: {
             root: cx("px-3 py-2", hasTrailingIcon && "pr-9", hasLeadingIcon && "pl-10"),
             iconLeading: "left-3",
@@ -75,7 +75,7 @@ export const InputBase = ({
             iconTrailing: "right-3.5",
             shortcut: "pr-3",
         },
-    });
+    };
 
     return (
         <AriaGroup

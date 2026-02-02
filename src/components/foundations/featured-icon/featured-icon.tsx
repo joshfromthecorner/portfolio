@@ -1,6 +1,6 @@
 import type { FC, ReactNode, Ref } from "react";
 import { isValidElement } from "react";
-import { cx, sortCx } from "@/utils/cx";
+import { cx } from "@/utils/cx";
 import { isReactComponent } from "@/utils/is-react-component";
 
 const iconsSizes = {
@@ -10,7 +10,7 @@ const iconsSizes = {
     xl: "*:data-icon:size-7",
 };
 
-const styles = sortCx({
+const styles = {
     light: {
         base: "rounded-full",
         sizes: {
@@ -115,7 +115,7 @@ const styles = sortCx({
             success: "text-fg-success-primary before:border-fg-success-primary/30 after:border-fg-success-primary/10",
         },
     },
-});
+};
 
 interface FeaturedIconProps {
     ref?: Ref<HTMLDivElement>;

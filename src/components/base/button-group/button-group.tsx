@@ -7,10 +7,10 @@ import {
     type ToggleButtonGroupProps,
     type ToggleButtonProps,
 } from "react-aria-components";
-import { cx, sortCx } from "@/utils/cx";
+import { cx } from "@/utils/cx";
 import { isReactComponent } from "@/utils/is-react-component";
 
-export const styles = sortCx({
+export const styles = {
     common: {
         root: [
             "group/button-group inline-flex h-max cursor-pointer items-center bg-primary font-semibold whitespace-nowrap text-secondary shadow-skeumorphic ring-1 ring-primary outline-brand transition duration-100 ease-linear ring-inset",
@@ -38,7 +38,7 @@ export const styles = sortCx({
             icon: "size-5",
         },
     },
-});
+};
 
 type ButtonSize = keyof typeof styles.sizes;
 

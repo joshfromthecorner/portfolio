@@ -3,7 +3,7 @@
 import type { FC, ReactNode } from "react";
 import { isValidElement } from "react";
 import { ArrowRight } from "@untitledui/icons";
-import { cx, sortCx } from "@/utils/cx";
+import { cx } from "@/utils/cx";
 import { isReactComponent } from "@/utils/is-react-component";
 
 type Size = "md" | "lg";
@@ -56,7 +56,7 @@ const getSizeClasses = (
     },
 });
 
-const colorClasses: Record<Theme, Record<Color, { root?: string; addon?: string; icon?: string; dot?: string }>> = sortCx({
+const colorClasses: Record<Theme, Record<Color, { root?: string; addon?: string; icon?: string; dot?: string }>> = {
     light: {
         brand: {
             root: "bg-utility-brand-50 text-utility-brand-700 ring-utility-brand-200 hover:bg-utility-brand-100",
@@ -101,7 +101,7 @@ const colorClasses: Record<Theme, Record<Color, { root?: string; addon?: string;
             dot: "bg-utility-success-500 outline-3 -outline-offset-1 outline-utility-success-100",
         },
     },
-});
+};
 
 interface BadgeGroupProps {
     children?: string | ReactNode;

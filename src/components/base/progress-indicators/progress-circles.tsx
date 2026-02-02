@@ -1,6 +1,6 @@
 "use client";
 
-import { cx as clx, sortCx } from "@/utils/cx";
+import { cx as clx } from "@/utils/cx";
 
 interface ProgressBarProps {
     value: number;
@@ -11,7 +11,7 @@ interface ProgressBarProps {
     valueFormatter?: (value: number, valueInPercentage: number) => string | number;
 }
 
-const sizes = sortCx({
+const sizes = {
     xxs: {
         strokeWidth: 6,
         radius: 29,
@@ -47,7 +47,7 @@ const sizes = sortCx({
         labelClass: "text-sm font-medium text-tertiary",
         halfCircleTextPosition: "absolute bottom-0 text-center",
     },
-});
+};
 
 export const ProgressBarCircle = ({ value, min = 0, max = 100, size, label, valueFormatter }: ProgressBarProps) => {
     const percentage = Math.round(((value - min) * 100) / (max - min));

@@ -1,3 +1,3 @@
-import { HomeScreen } from "./home-screen";
+import { PortfolioPage } from "./portfolio";
 
-export default HomeScreen;
+export default PortfolioPage;

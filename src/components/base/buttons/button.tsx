@@ -4,10 +4,10 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, DetailedHTMLProps, FC,
 import React, { isValidElement } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import { Button as AriaButton, Link as AriaLink } from "react-aria-components";
-import { cx, sortCx } from "@/utils/cx";
+import { cx } from "@/utils/cx";
 import { isReactComponent } from "@/utils/is-react-component";
 
-export const styles = sortCx({
+export const styles = {
     common: {
         root: [
             "group relative inline-flex h-max cursor-pointer items-center justify-center whitespace-nowrap outline-brand transition duration-100 ease-linear before:absolute focus-visible:outline-2 focus-visible:outline-offset-2",
@@ -130,7 +130,7 @@ export const styles = sortCx({
             ].join(" "),
         },
     },
-});
+};
 
 /**
  * Common props shared between button and anchor variants

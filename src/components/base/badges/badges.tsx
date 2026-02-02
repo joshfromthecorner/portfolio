@@ -111,6 +111,96 @@ const withBadgeTypes = {
     },
 };
 
+// Shared size definitions to reduce duplication
+const badgeSizes = {
+    // Basic badge sizes (used by Badge component)
+    basic: {
+        pill: {
+            sm: "py-0.5 px-2 text-base font-medium",
+            md: "py-0.5 px-2.5 text-base font-medium",
+            lg: "py-1 px-3 text-base font-medium",
+        },
+        badge: {
+            sm: "py-0.5 px-1.5 text-base font-medium",
+            md: "py-0.5 px-2 text-base font-medium",
+            lg: "py-1 px-2.5 text-base font-medium rounded-lg",
+        },
+    },
+    // Sizes with dot (used by BadgeWithDot)
+    withDot: {
+        pill: {
+            sm: "gap-1 py-0.5 pl-1.5 pr-2 text-base font-medium",
+            md: "gap-1.5 py-0.5 pl-2 pr-2.5 text-base font-medium",
+            lg: "gap-1.5 py-1 pl-2.5 pr-3 text-base font-medium",
+        },
+        badge: {
+            sm: "gap-1 py-0.5 px-1.5 text-base font-medium",
+            md: "gap-1.5 py-0.5 px-2 text-base font-medium",
+            lg: "gap-1.5 py-1 px-2.5 text-base font-medium rounded-lg",
+        },
+    },
+    // Sizes with leading image/flag (used by BadgeWithFlag, BadgeWithImage)
+    withLeadingImage: {
+        pill: {
+            sm: "gap-1 py-0.5 pl-0.75 pr-2 text-base font-medium",
+            md: "gap-1.5 py-0.5 pl-1 pr-2.5 text-base font-medium",
+            lg: "gap-1.5 py-1 pl-1.5 pr-3 text-base font-medium",
+        },
+        badge: {
+            sm: "gap-1 py-0.5 pl-1 pr-1.5 text-base font-medium",
+            md: "gap-1.5 py-0.5 pl-1.5 pr-2 text-base font-medium",
+            lg: "gap-1.5 py-1 pl-2 pr-2.5 text-base font-medium rounded-lg",
+        },
+    },
+    // Sizes with trailing button (used by BadgeWithButton)
+    withButton: {
+        pill: {
+            sm: "gap-0.5 py-0.5 pl-2 pr-0.75 text-base font-medium",
+            md: "gap-0.5 py-0.5 pl-2.5 pr-1 text-base font-medium",
+            lg: "gap-0.5 py-1 pl-3 pr-1.5 text-base font-medium",
+        },
+        badge: {
+            sm: "gap-0.5 py-0.5 pl-1.5 pr-0.75 text-base font-medium",
+            md: "gap-0.5 py-0.5 pl-2 pr-1 text-base font-medium",
+            lg: "gap-0.5 py-1 pl-2.5 pr-1.5 text-base font-medium rounded-lg",
+        },
+    },
+    // Icon-only sizes (used by BadgeIcon)
+    iconOnly: {
+        pill: { sm: "p-1.25", md: "p-1.5", lg: "p-2" },
+        badge: { sm: "p-1.25", md: "p-1.5", lg: "p-2 rounded-lg" },
+    },
+    // Sizes with icon (used by BadgeWithIcon) - directional
+    withIcon: {
+        pill: {
+            sm: { trailing: "gap-0.5 py-0.5 pl-2 pr-1.5 text-base font-medium", leading: "gap-0.5 py-0.5 pr-2 pl-1.5 text-base font-medium" },
+            md: { trailing: "gap-1 py-0.5 pl-2.5 pr-2 text-base font-medium", leading: "gap-1 py-0.5 pr-2.5 pl-2 text-base font-medium" },
+            lg: { trailing: "gap-1 py-1 pl-3 pr-2.5 text-base font-medium", leading: "gap-1 py-1 pr-3 pl-2.5 text-base font-medium" },
+        },
+        badge: {
+            sm: { trailing: "gap-0.5 py-0.5 pl-2 pr-1.5 text-base font-medium", leading: "gap-0.5 py-0.5 pr-2 pl-1.5 text-base font-medium" },
+            md: { trailing: "gap-1 py-0.5 pl-2 pr-1.5 text-base font-medium", leading: "gap-1 py-0.5 pr-2 pl-1.5 text-base font-medium" },
+            lg: { trailing: "gap-1 py-1 pl-2.5 pr-2 text-base font-medium rounded-lg", leading: "gap-1 py-1 pr-2.5 pl-2 text-base font-medium rounded-lg" },
+        },
+    },
+};
+
+// Type for simple size objects (string values)
+type SimpleSizes = Record<Sizes, string>;
+// Type for directional size objects (trailing/leading)
+type DirectionalSizes = Record<Sizes, { trailing: string; leading: string }>;
+
+// Helper to get simple sizes for a badge type
+const getSimpleSizes = (variant: "basic" | "withDot" | "withLeadingImage" | "withButton" | "iconOnly", type: BadgeTypes): SimpleSizes => {
+    const sizes = badgeSizes[variant];
+    return type === badgeTypes.pillColor ? sizes.pill : sizes.badge;
+};
+
+// Helper to get directional sizes for badge with icon
+const getDirectionalSizes = (type: BadgeTypes): DirectionalSizes => {
+    return type === badgeTypes.pillColor ? badgeSizes.withIcon.pill : badgeSizes.withIcon.badge;
+};
+
 export type BadgeColor<T extends BadgeTypes> = BadgeTypeToColorMap<typeof withPillTypes>[T];
 
 interface BadgeProps<T extends BadgeTypes> {
@@ -124,25 +214,9 @@ interface BadgeProps<T extends BadgeTypes> {
 export const Badge = <T extends BadgeTypes>(props: BadgeProps<T>) => {
     const { type = "pill-color", size = "md", color = "gray", children } = props;
     const colors = withPillTypes[type];
+    const sizes = getSimpleSizes("basic", type);
 
-    const pillSizes = {
-        sm: "py-0.5 px-2 text-xs font-medium",
-        md: "py-0.5 px-2.5 text-sm font-medium",
-        lg: "py-1 px-3 text-sm font-medium",
-    };
-    const badgeSizes = {
-        sm: "py-0.5 px-1.5 text-xs font-medium",
-        md: "py-0.5 px-2 text-sm font-medium",
-        lg: "py-1 px-2.5 text-sm font-medium rounded-lg",
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
-
-    return <span className={cx(colors.common, sizes[type][size], colors.styles[color].root, props.className)}>{children}</span>;
+    return <span className={cx(colors.common, sizes[size], colors.styles[color].root, props.className)}>{children}</span>;
 };
 
 interface BadgeWithDotProps<T extends BadgeTypes> {
@@ -155,29 +229,11 @@ interface BadgeWithDotProps<T extends BadgeTypes> {
 
 export const BadgeWithDot = <T extends BadgeTypes>(props: BadgeWithDotProps<T>) => {
     const { size = "md", color = "gray", type = "pill-color", className, children } = props;
-
     const colors = withBadgeTypes[type];
-
-    const pillSizes = {
-        sm: "gap-1 py-0.5 pl-1.5 pr-2 text-xs font-medium",
-        md: "gap-1.5 py-0.5 pl-2 pr-2.5 text-sm font-medium",
-        lg: "gap-1.5 py-1 pl-2.5 pr-3 text-sm font-medium",
-    };
-
-    const badgeSizes = {
-        sm: "gap-1 py-0.5 px-1.5 text-xs font-medium",
-        md: "gap-1.5 py-0.5 px-2 text-sm font-medium",
-        lg: "gap-1.5 py-1 px-2.5 text-sm font-medium rounded-lg",
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
+    const sizes = getSimpleSizes("withDot", type);
 
     return (
-        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root, className)}>
+        <span className={cx(colors.common, sizes[size], colors.styles[color].root, className)}>
             <Dot className={colors.styles[color].addon} size="sm" />
             {children}
         </span>
@@ -196,48 +252,12 @@ interface BadgeWithIconProps<T extends BadgeTypes> {
 
 export const BadgeWithIcon = <T extends BadgeTypes>(props: BadgeWithIconProps<T>) => {
     const { size = "md", color = "gray", type = "pill-color", iconLeading: IconLeading, iconTrailing: IconTrailing, children, className } = props;
-
     const colors = withBadgeTypes[type];
-
     const icon = IconLeading ? "leading" : "trailing";
-
-    const pillSizes = {
-        sm: {
-            trailing: "gap-0.5 py-0.5 pl-2 pr-1.5 text-xs font-medium",
-            leading: "gap-0.5 py-0.5 pr-2 pl-1.5 text-xs font-medium",
-        },
-        md: {
-            trailing: "gap-1 py-0.5 pl-2.5 pr-2 text-sm font-medium",
-            leading: "gap-1 py-0.5 pr-2.5 pl-2 text-sm font-medium",
-        },
-        lg: {
-            trailing: "gap-1 py-1 pl-3 pr-2.5 text-sm font-medium",
-            leading: "gap-1 py-1 pr-3 pl-2.5 text-sm font-medium",
-        },
-    };
-    const badgeSizes = {
-        sm: {
-            trailing: "gap-0.5 py-0.5 pl-2 pr-1.5 text-xs font-medium",
-            leading: "gap-0.5 py-0.5 pr-2 pl-1.5 text-xs font-medium",
-        },
-        md: {
-            trailing: "gap-1 py-0.5 pl-2 pr-1.5 text-sm font-medium",
-            leading: "gap-1 py-0.5 pr-2 pl-1.5 text-sm font-medium",
-        },
-        lg: {
-            trailing: "gap-1 py-1 pl-2.5 pr-2 text-sm font-medium rounded-lg",
-            leading: "gap-1 py-1 pr-2.5 pl-2 text-sm font-medium rounded-lg",
-        },
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
+    const sizes = getDirectionalSizes(type);
 
     return (
-        <span className={cx(colors.common, sizes[type][size][icon], colors.styles[color].root, className)}>
+        <span className={cx(colors.common, sizes[size][icon], colors.styles[color].root, className)}>
             {IconLeading && <IconLeading className={cx(colors.styles[color].addon, "size-3 stroke-3")} />}
             {children}
             {IconTrailing && <IconTrailing className={cx(colors.styles[color].addon, "size-3 stroke-3")} />}
@@ -255,28 +275,11 @@ interface BadgeWithFlagProps<T extends BadgeTypes> {
 
 export const BadgeWithFlag = <T extends BadgeTypes>(props: BadgeWithFlagProps<T>) => {
     const { size = "md", color = "gray", flag = "AU", type = "pill-color", children } = props;
-
     const colors = withPillTypes[type];
-
-    const pillSizes = {
-        sm: "gap-1 py-0.5 pl-0.75 pr-2 text-xs font-medium",
-        md: "gap-1.5 py-0.5 pl-1 pr-2.5 text-sm font-medium",
-        lg: "gap-1.5 py-1 pl-1.5 pr-3 text-sm font-medium",
-    };
-    const badgeSizes = {
-        sm: "gap-1 py-0.5 pl-1 pr-1.5 text-xs font-medium",
-        md: "gap-1.5 py-0.5 pl-1.5 pr-2 text-sm font-medium",
-        lg: "gap-1.5 py-1 pl-2 pr-2.5 text-sm font-medium rounded-lg",
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
+    const sizes = getSimpleSizes("withLeadingImage", type);
 
     return (
-        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root)}>
+        <span className={cx(colors.common, sizes[size], colors.styles[color].root)}>
             <img src={`https://www.untitledui.com/images/flags/${flag}.svg`} className="size-4 max-w-none rounded-full" alt={`${flag} flag`} />
             {children}
         </span>
@@ -293,28 +296,11 @@ interface BadgeWithImageProps<T extends BadgeTypes> {
 
 export const BadgeWithImage = <T extends BadgeTypes>(props: BadgeWithImageProps<T>) => {
     const { size = "md", color = "gray", type = "pill-color", imgSrc, children } = props;
-
     const colors = withPillTypes[type];
-
-    const pillSizes = {
-        sm: "gap-1 py-0.5 pl-0.75 pr-2 text-xs font-medium",
-        md: "gap-1.5 py-0.5 pl-1 pr-2.5 text-sm font-medium",
-        lg: "gap-1.5 py-1 pl-1.5 pr-3 text-sm font-medium",
-    };
-    const badgeSizes = {
-        sm: "gap-1 py-0.5 pl-1 pr-1.5 text-xs font-medium",
-        md: "gap-1.5 py-0.5 pl-1.5 pr-2 text-sm font-medium",
-        lg: "gap-1.5 py-1 pl-2 pr-2.5 text-sm font-medium rounded-lg",
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
+    const sizes = getSimpleSizes("withLeadingImage", type);
 
     return (
-        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root)}>
+        <span className={cx(colors.common, sizes[size], colors.styles[color].root)}>
             <img src={imgSrc} className="size-4 max-w-none rounded-full" alt="Badge image" />
             {children}
         </span>
@@ -327,40 +313,19 @@ interface BadgeWithButtonProps<T extends BadgeTypes> {
     icon?: IconComponentType;
     color?: BadgeTypeToColorMap<typeof withPillTypes>[T];
     children: ReactNode;
-    /**
-     * The label for the button.
-     */
+    /** The label for the button. */
     buttonLabel?: string;
-    /**
-     * The click event handler for the button.
-     */
+    /** The click event handler for the button. */
     onButtonClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const BadgeWithButton = <T extends BadgeTypes>(props: BadgeWithButtonProps<T>) => {
     const { size = "md", color = "gray", type = "pill-color", icon: Icon = CloseX, buttonLabel, children } = props;
-
     const colors = withPillTypes[type];
-
-    const pillSizes = {
-        sm: "gap-0.5 py-0.5 pl-2 pr-0.75 text-xs font-medium",
-        md: "gap-0.5 py-0.5 pl-2.5 pr-1 text-sm font-medium",
-        lg: "gap-0.5 py-1 pl-3 pr-1.5 text-sm font-medium",
-    };
-    const badgeSizes = {
-        sm: "gap-0.5 py-0.5 pl-1.5 pr-0.75 text-xs font-medium",
-        md: "gap-0.5 py-0.5 pl-2 pr-1 text-sm font-medium",
-        lg: "gap-0.5 py-1 pl-2.5 pr-1.5 text-sm font-medium rounded-lg",
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
+    const sizes = getSimpleSizes("withButton", type);
 
     return (
-        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root)}>
+        <span className={cx(colors.common, sizes[size], colors.styles[color].root)}>
             {children}
             <button
                 type="button"
@@ -388,29 +353,11 @@ interface BadgeIconProps<T extends BadgeTypes> {
 
 export const BadgeIcon = <T extends BadgeTypes>(props: BadgeIconProps<T>) => {
     const { size = "md", color = "gray", type = "pill-color", icon: Icon } = props;
-
     const colors = withPillTypes[type];
-
-    const pillSizes = {
-        sm: "p-1.25",
-        md: "p-1.5",
-        lg: "p-2",
-    };
-
-    const badgeSizes = {
-        sm: "p-1.25",
-        md: "p-1.5",
-        lg: "p-2 rounded-lg",
-    };
-
-    const sizes = {
-        [badgeTypes.pillColor]: pillSizes,
-        [badgeTypes.badgeColor]: badgeSizes,
-        [badgeTypes.badgeModern]: badgeSizes,
-    };
+    const sizes = getSimpleSizes("iconOnly", type);
 
     return (
-        <span className={cx(colors.common, sizes[type][size], colors.styles[color].root)}>
+        <span className={cx(colors.common, sizes[size], colors.styles[color].root)}>
             <Icon className={cx("size-3 stroke-[3px]", colors.styles[color].addon)} />
         </span>
     );
