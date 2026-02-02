@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Key } from "react-aria-components";
 import { ArrowRight, ArrowUpRight, Briefcase02, CalendarDate, Code02, Mail01, Moon01, PlayCircle, Star01, Sun, User01 } from "@untitledui/icons";
 import { useTheme } from "next-themes";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Badge } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
+import { NativeSelect } from "@/components/base/select/select-native";
 import { Tabs } from "@/components/application/tabs/tabs";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { GitHub, LinkedIn, X as XIcon } from "@/components/foundations/social-icons";
@@ -193,6 +195,8 @@ const ThemeToggle = () => {
 };
 
 export const PortfolioPage = () => {
+    const [selectedTab, setSelectedTab] = useState<Key>("experience");
+
     return (
         <div className="min-h-screen bg-primary">
             {/* Header */}
@@ -299,13 +303,16 @@ export const PortfolioPage = () => {
 
             {/* Tabs Section */}
             <div className="mx-auto max-w-6xl px-4 md:px-8">
-                <Tabs defaultSelectedKey="experience">
-                    <Tabs.List items={tabItems} type="underline" size="md" fullWidth>
-                        {(item) => (
-                            <Tabs.Item key={item.id} id={item.id}>
-                                {item.label}
-                            </Tabs.Item>
-                        )}
+                <NativeSelect
+                    aria-label="Tabs"
+                    value={selectedTab as string}
+                    onChange={(event) => setSelectedTab(event.target.value)}
+                    options={tabItems.map((tab) => ({ label: tab.label, value: tab.id }))}
+                    className="w-full md:hidden"
+                />
+                <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab} className="max-md:hidden">
+                    <Tabs.List type="button-border" items={tabItems}>
+                        {(tab) => <Tabs.Item {...tab} />}
                     </Tabs.List>
 
                     {/* About Tab */}
