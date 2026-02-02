@@ -127,7 +127,7 @@ const testimonials = [
 ];
 
 const tabItems = [
-    { id: "experience", label: "Experience" },
+    { id: "experience", label: "Work" },
     { id: "about", label: "About" },
     { id: "testimonials", label: "Testimonials" },
     { id: "contact", label: "Contact" },
