@@ -311,7 +311,7 @@ export const PortfolioPage = () => {
                     className="w-full md:hidden"
                 />
                 <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab} className="max-md:hidden">
-                    <Tabs.List type="button-border" size="md" items={tabItems}>
+                    <Tabs.List type="button-border" size="md" fullWidth items={tabItems}>
                         {(tab) => <Tabs.Item {...tab} />}
                     </Tabs.List>
 
