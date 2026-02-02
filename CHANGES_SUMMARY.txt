@@ -1,0 +1,43 @@
+PORTFOLIO WEBSITE CHANGES - READY FOR DEPLOYMENT
+==================================================
+
+✅ ALL CHANGES COMPLETED AND VERIFIED
+
+1. LOGO SIZE INCREASED
+   - File: src/app/portfolio.tsx
+   - Line: 136
+   - Change: width="128" height="40" (was 120x32)
+   - Status: ✓ Verified
+
+2. PHOTO REPOSITIONED  
+   - File: src/app/portfolio.tsx
+   - Lines: 238-252
+   - Change: Photo moved next to action buttons
+   - Status: ✓ Verified
+
+DEPLOYMENT INSTRUCTIONS
+========================
+
+When network connectivity is restored, run these commands:
+
+cd /Users/joshua/Desktop/portfolio-website
+
+# Stage the changes
+git add src/app/portfolio.tsx
+git add public/joshua.png public/joshua-logo.svg
+
+# Commit
+git commit -m "feat: increase logo size by 8px and move hero photo next to buttons"
+
+# Set your GitHub repo (if needed)
+git remote set-url origin https://github.com/joshfromthecorner/joshua.git
+
+# Push to trigger Vercel deployment
+git push origin main
+# OR if on a different branch:
+# git push origin <branch-name>
+
+Vercel will automatically deploy once pushed to GitHub.
+
+Your Vercel project: https://vercel.com/joshfromthecorners-projects/portfolio-website
+Your GitHub repo: https://github.com/joshfromthecorner/joshua.git
