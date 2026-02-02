@@ -282,21 +282,6 @@ export const PortfolioPage = () => {
                             Experienced working in scrum product development teams across a range of sectors, including PostNL, Sunweb, BNG Bank, OVpay, NVM, Air France–KLM Cargo, Albert Heijn, and the Dutch Ministry of Health. I work in a research-driven way, using data and qualitative insights to shape solutions, which I then validate with users to build products they truly want to use.
                         </p>
 
-                        {/* CTA Buttons with Photo */}
-                        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                            <Button color="secondary" size="xl" iconLeading={LinkedIn} href="https://linkedin.com" target="_blank">
-                                Chat on LinkedIn
-                            </Button>
-                            <Button color="primary" size="xl" iconLeading={CalendarDate}>
-                                Schedule a call
-                            </Button>
-                            {/* Profile Photo */}
-                            <img
-                                src="/joshua.png"
-                                alt=""
-                                className="size-12 rounded-full bg-secondary object-cover"
-                            />
-                        </div>
                     </div>
                 </div>
             </section>
@@ -456,10 +441,18 @@ export const PortfolioPage = () => {
                                 I&apos;m currently available for freelance work and full-time opportunities. If you have a project in mind, let&apos;s
                                 talk!
                             </p>
-                            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                                <Button href="mailto:hello@johndoe.com" size="lg" iconLeading={Mail01}>
-                                    hello@johndoe.com
+                            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                                <Button color="secondary" size="xl" iconLeading={LinkedIn} href="https://linkedin.com" target="_blank">
+                                    Chat on LinkedIn
                                 </Button>
+                                <Button color="primary" size="xl" iconLeading={CalendarDate}>
+                                    Schedule a call
+                                </Button>
+                                <img
+                                    src="/joshua.png"
+                                    alt=""
+                                    className="size-12 rounded-full bg-secondary object-cover"
+                                />
                             </div>
                             <div className="mt-8 flex items-center justify-center gap-4">
                                 <a
