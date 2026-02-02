@@ -207,11 +207,54 @@ export const PortfolioPage = () => {
 
             {/* Hero Section */}
             <section className="relative overflow-hidden pb-16 pt-8 md:pb-24 md:pt-24">
-                {/* Grid Background Pattern */}
-                <div className="pointer-events-none absolute inset-0">
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:80px_80px] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)]" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary" />
-                </div>
+                {/* Dashed Top Fade Grid - Light Mode */}
+                <div
+                    className="pointer-events-none absolute inset-0 z-0 dark:hidden"
+                    style={{
+                        backgroundImage: `
+                            linear-gradient(to right, #e7e5e4 1px, transparent 1px),
+                            linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
+                        `,
+                        backgroundSize: "20px 20px",
+                        backgroundPosition: "0 0, 0 0",
+                        maskImage: `
+                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
+                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
+                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
+                        `,
+                        WebkitMaskImage: `
+                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
+                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
+                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
+                        `,
+                        maskComposite: "intersect",
+                        WebkitMaskComposite: "source-in",
+                    }}
+                />
+                {/* Dashed Top Fade Grid - Dark Mode */}
+                <div
+                    className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
+                    style={{
+                        backgroundImage: `
+                            linear-gradient(to right, #3f3f46 1px, transparent 1px),
+                            linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
+                        `,
+                        backgroundSize: "20px 20px",
+                        backgroundPosition: "0 0, 0 0",
+                        maskImage: `
+                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
+                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
+                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
+                        `,
+                        WebkitMaskImage: `
+                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
+                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
+                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
+                        `,
+                        maskComposite: "intersect",
+                        WebkitMaskComposite: "source-in",
+                    }}
+                />
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
