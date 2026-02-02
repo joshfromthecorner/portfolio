@@ -246,8 +246,8 @@ export const PortfolioPage = () => {
                             {/* Profile Photo */}
                             <img
                                 src="/joshua.png"
-                                alt="Joshua"
-                                className="size-12 rounded-full object-cover"
+                                alt=""
+                                className="size-12 rounded-full bg-secondary object-cover"
                             />
                         </div>
                     </div>
