@@ -302,8 +302,7 @@ export const PortfolioPage = () => {
 
                     {/* About Tab */}
                     <Tabs.Panel id="about" className="py-16 md:py-24">
-                        <h2 className="text-display-xs font-semibold text-primary">About</h2>
-                        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                             {skills.map((skill) => (
                                 <div key={skill.name} className="flex items-center justify-between rounded-xl bg-secondary p-4">
                                     <span className="font-medium text-primary">{skill.name}</span>
@@ -317,11 +316,7 @@ export const PortfolioPage = () => {
 
                     {/* Projects Tab */}
                     <Tabs.Panel id="projects" className="py-16 md:py-24">
-                        <div className="flex items-center gap-3">
-                            <FeaturedIcon icon={Briefcase02} color="brand" theme="light" size="md" />
-                            <h2 className="text-display-xs font-semibold text-primary">Featured Projects</h2>
-                        </div>
-                        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             {projects.map((project) => (
                                 <a key={project.title} href={project.link} className="group overflow-hidden rounded-2xl bg-secondary transition">
                                     <div className="aspect-video overflow-hidden">
@@ -352,8 +347,7 @@ export const PortfolioPage = () => {
 
                     {/* Experience Tab */}
                     <Tabs.Panel id="experience" className="py-16 md:py-24">
-                        <h2 className="text-display-xs font-semibold text-primary">Experience</h2>
-                        <div className="mt-8 space-y-8">
+                        <div className="space-y-8">
                             {experience.map((job, index) => (
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 transition">
                                     <div className="flex gap-6">
@@ -410,8 +404,7 @@ export const PortfolioPage = () => {
 
                     {/* Testimonials Tab */}
                     <Tabs.Panel id="testimonials" className="py-16 md:py-24">
-                        <h2 className="text-display-xs font-semibold text-primary">Testimonials</h2>
-                        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="flex flex-col rounded-2xl bg-secondary p-6">
                                     <div className="flex gap-1">
@@ -434,8 +427,7 @@ export const PortfolioPage = () => {
 
                     {/* Contact Tab */}
                     <Tabs.Panel id="contact" className="py-16 md:py-24">
-                        <h2 className="text-display-xs font-semibold text-primary">Contact</h2>
-                        <div className="mt-8 rounded-2xl bg-secondary p-8 text-center md:p-12">
+                        <div className="rounded-2xl bg-secondary p-8 text-center md:p-12">
                             <p className="text-base font-semibold text-primary">Let&apos;s work together</p>
                             <p className="mx-auto mt-3 max-w-lg text-base text-tertiary">
                                 I&apos;m currently available for freelance work and full-time opportunities. If you have a project in mind, let&apos;s
