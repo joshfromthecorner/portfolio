@@ -206,7 +206,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden pb-16 pt-8 md:pb-24 md:pt-12">
+            <section className="relative overflow-hidden pb-16 pt-8 md:pb-24 md:pt-24">
                 {/* Grid Background Pattern */}
                 <div className="pointer-events-none absolute inset-0">
                         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:80px_80px] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)]" />
@@ -266,7 +266,7 @@ export const PortfolioPage = () => {
                     </Tabs.List>
 
                     {/* About Tab */}
-                    <Tabs.Panel id="about" className="py-16">
+                    <Tabs.Panel id="about" className="py-16 md:py-24">
                         <h2 className="text-display-xs font-semibold text-primary">About</h2>
                         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                             {skills.map((skill) => (
@@ -281,7 +281,7 @@ export const PortfolioPage = () => {
                     </Tabs.Panel>
 
                     {/* Projects Tab */}
-                    <Tabs.Panel id="projects" className="py-16">
+                    <Tabs.Panel id="projects" className="py-16 md:py-24">
                         <div className="flex items-center gap-3">
                             <FeaturedIcon icon={Briefcase02} color="brand" theme="light" size="md" />
                             <h2 className="text-display-xs font-semibold text-primary">Featured Projects</h2>
@@ -316,7 +316,7 @@ export const PortfolioPage = () => {
                     </Tabs.Panel>
 
                     {/* Experience Tab */}
-                    <Tabs.Panel id="experience" className="py-16">
+                    <Tabs.Panel id="experience" className="py-16 md:py-24">
                         <h2 className="text-display-xs font-semibold text-primary">Experience</h2>
                         <div className="mt-8 space-y-8">
                             {experience.map((job, index) => (
@@ -374,7 +374,7 @@ export const PortfolioPage = () => {
                     </Tabs.Panel>
 
                     {/* Testimonials Tab */}
-                    <Tabs.Panel id="testimonials" className="py-16">
+                    <Tabs.Panel id="testimonials" className="py-16 md:py-24">
                         <h2 className="text-display-xs font-semibold text-primary">Testimonials</h2>
                         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {testimonials.map((testimonial, index) => (
@@ -398,7 +398,7 @@ export const PortfolioPage = () => {
                     </Tabs.Panel>
 
                     {/* Contact Tab */}
-                    <Tabs.Panel id="contact" className="py-16">
+                    <Tabs.Panel id="contact" className="py-16 md:py-24">
                         <h2 className="text-display-xs font-semibold text-primary">Contact</h2>
                         <div className="mt-8 rounded-2xl bg-secondary p-8 text-center md:p-12">
                             <p className="text-base font-semibold text-primary">Let&apos;s work together</p>
