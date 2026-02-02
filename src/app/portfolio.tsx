@@ -196,7 +196,7 @@ export const PortfolioPage = () => {
     return (
         <div className="min-h-screen bg-primary">
             {/* Header */}
-            <header className="flex h-18 w-full items-center justify-center md:h-20">
+            <header className="absolute top-0 left-0 right-0 z-10 flex h-18 w-full items-center justify-center bg-transparent md:h-20">
                 <div className="mx-auto flex size-full max-w-6xl flex-1 items-center justify-between px-4 md:px-8">
                     <div className="text-primary">
                         <JoshuaLogo />
