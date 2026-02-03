@@ -7,7 +7,6 @@ import { useTheme } from "next-themes";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Badge } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
-import { NativeSelect } from "@/components/base/select/select-native";
 import { Tabs } from "@/components/application/tabs/tabs";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { GitHub, LinkedIn, X as XIcon } from "@/components/foundations/social-icons";
@@ -247,7 +246,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative z-1 overflow-hidden pb-16 pt-8 md:pb-24 md:pt-40">
+            <section className="relative z-1 overflow-hidden pb-16 pt-24 md:pb-24 md:pt-40">
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
@@ -262,7 +261,7 @@ export const PortfolioPage = () => {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="max-w-4xl text-[48px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-4xl text-[32px] md:text-[48px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
@@ -277,14 +276,7 @@ export const PortfolioPage = () => {
 
             {/* Tabs Section */}
             <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
-                <NativeSelect
-                    aria-label="Tabs"
-                    value={selectedTab as string}
-                    onChange={(event) => setSelectedTab(event.target.value)}
-                    options={tabItems.map((tab) => ({ label: tab.label, value: tab.id }))}
-                    className="w-full md:hidden"
-                />
-                <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab} className="max-md:hidden">
+                <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab}>
                     <Tabs.List type="button-border" size="md" fullWidth items={tabItems}>
                         {(tab) => <Tabs.Item {...tab} />}
                     </Tabs.List>
