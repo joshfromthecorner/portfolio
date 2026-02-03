@@ -216,14 +216,14 @@ export const PortfolioPage = () => {
             <div
                 className="pointer-events-none fixed inset-0 z-0 dark:hidden"
                 style={{
-                    background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, rgba(46, 144, 250, 0.3) 100%)",
+                    background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, rgba(46, 144, 250, 0.5) 100%)",
                 }}
             />
             {/* Radial Gradient Background - Dark Mode */}
             <div
                 className="pointer-events-none fixed inset-0 z-0 hidden dark:block"
                 style={{
-                    background: "radial-gradient(125% 125% at 50% 90%, #09090b 40%, rgba(23, 92, 211, 0.4) 100%)",
+                    background: "radial-gradient(125% 125% at 50% 90%, #09090b 40%, rgba(23, 92, 211, 0.6) 100%)",
                 }}
             />
 
