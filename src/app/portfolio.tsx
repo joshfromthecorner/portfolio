@@ -50,7 +50,7 @@ const experience = [
         company: "Valsplat",
         logo: "/valsplat-black.png",
         logoDark: "/valsplat-white.png",
-        description: "At Valsplat I have worked for a lot of big clients, some for a longer time (2 years at Dutch Ministry of Health) and others for only a design sprint of 1 week for example. I've learned a lot from all these different clients and all the people I met but specially the people at Valsplat each with their own curiosity and expertise. At Valsplat I also learned putting users first, never build something on assumptions but design with insights and validate your choices to make real meaningful products.",
+        description: "At Valsplat, I've worked with a wide range of high-profile clients, some for extended periods (including two years at the Dutch Ministry of Health) and others in shorter engagements such as one-week design sprints. Each project taught me something new, not only through the challenges of different organisations but also through the people I met along the way, and especially my colleagues at Valsplat, each bringing their own curiosity, expertise, and perspective. Working at Valsplat has also strengthened my user-first mindset: putting real user needs at the centre, avoiding assumptions, and designing based on insights. I've learned to validate decisions early and often, ensuring the products we build are not only well-designed, but truly meaningful and impactful.",
         positions: [
             {
                 role: "Medior Product Designer",
@@ -91,12 +91,24 @@ const experience = [
         positions: [
             {
                 role: "Junior UX Designer",
-                period: "2021",
+                period: "Jul 2021 - Sep 2021",
                 projects: [],
             },
             {
                 role: "Graduation Intern UX Designer",
-                period: "2021",
+                period: "Feb 2021 - Jul 2021",
+                projects: [],
+            },
+        ],
+    },
+    {
+        company: "D-signwrk",
+        logo: "/d-signwrk.png",
+        description: "In addition to my studies, I designed & developed websites for clients. I registered myself at the chamber of commerce as self-employed and formerly under the name D-signwrk to design and further develop myself outside of the classroom. Starting my own business has been one of the best steps in my development. Building websites learned me basic knowledge about HTML & CSS. I also worked on improving performance with SEO and Google Analytics.",
+        positions: [
+            {
+                role: "Freelance UX Designer",
+                period: "Oct 2018 - May 2021",
                 projects: [],
             },
         ],
@@ -108,7 +120,7 @@ const experience = [
         positions: [
             {
                 role: "Intern UX Designer",
-                period: "2020",
+                period: "Sep 2019 - Feb 2020",
                 projects: [],
             },
         ],
@@ -329,7 +341,7 @@ export const PortfolioPage = () => {
                     <Tabs.Panel id="experience" className="py-16 md:py-24">
                         <div className="space-y-8">
                             {experience.map((job, index) => (
-                                <div key={index} className="relative rounded-xl bg-secondary p-6 transition">
+                                <div key={index} className="relative rounded-xl bg-secondary p-6 ring-1 ring-secondary ring-inset transition">
                                     {/* Company header with logo */}
                                     <div className="flex gap-6">
                                         <div className={`hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full sm:flex ${job.logo ? "" : "bg-brand-secondary"}`}>
