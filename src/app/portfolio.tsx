@@ -211,13 +211,12 @@ export const PortfolioPage = () => {
     const [selectedTab, setSelectedTab] = useState<Key>("experience");
 
     return (
-        <div className="relative min-h-screen w-full overflow-hidden bg-white dark:bg-gray-950">
-            {/* Soft Blue Radial Background */}
+        <div className="relative min-h-screen w-full">
+            {/* Radial Gradient Background */}
             <div
                 className="pointer-events-none absolute inset-0 z-0"
                 style={{
-                    background: "#ffffff",
-                    backgroundImage: "radial-gradient(circle at top center, rgba(59, 130, 246, 0.5), transparent 70%)",
+                    background: "radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%)",
                 }}
             />
 
