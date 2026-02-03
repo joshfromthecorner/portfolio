@@ -392,11 +392,9 @@ export const PortfolioPage = () => {
                                                     <div className="absolute top-2.5 left-1.5 hidden w-px bg-border-secondary sm:block" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
-                                                {job.positions.length > 1 && (
-                                                    <div className="absolute top-1.5 left-0 hidden size-3.5 items-center justify-center sm:flex">
-                                                        <div className={`size-3 rounded-full border-2 ${posIndex === 0 ? "border-brand-solid bg-brand-solid" : "border-tertiary bg-primary"}`} />
-                                                    </div>
-                                                )}
+                                                <div className="absolute top-1.5 left-0 hidden size-3.5 items-center justify-center sm:flex">
+                                                    <div className={`size-3 rounded-full ${position.period.includes("Present") ? "bg-brand-solid" : "bg-quaternary"}`} />
+                                                </div>
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
                                                     <h3 className="font-semibold text-primary">{position.role}</h3>
