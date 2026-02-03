@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Key } from "react-aria-components";
-import { ArrowRight, ArrowUpRight, Briefcase02, CalendarDate, Code02, Mail01, Moon01, PlayCircle, Star01, Sun, User01 } from "@untitledui/icons";
+import { ArrowRight, ArrowUpRight, Briefcase02, CalendarDate, Code02, Mail01, Moon01, PlayCircle, Sun, User01 } from "@untitledui/icons";
 import { useTheme } from "next-themes";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Badge } from "@/components/base/badges/badges";
@@ -133,21 +133,18 @@ const testimonials = [
         role: "Dutch Ministry of Health",
         avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
         content: "Joshua's research-driven approach and ability to translate complex requirements into intuitive designs made a significant impact on our project.",
-        rating: 5,
     },
     {
         name: "Product Manager",
         role: "Albert Heijn",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
         content: "Joshua's Track & Trace prototype exceeded expectations and is still being used and developed by our team today.",
-        rating: 5,
     },
     {
         name: "Design Lead",
         role: "Valsplat",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
         content: "Joshua brings curiosity and expertise to every project, always putting users first and validating design choices with real insights.",
-        rating: 5,
     },
 ];
 
@@ -298,7 +295,7 @@ export const PortfolioPage = () => {
                             {/* Text Content */}
                             <div className="space-y-6 text-base leading-relaxed text-tertiary">
                                 <p className="text-lg font-medium text-primary">
-                                    Hi, I'm Joshua, a Dutch product designer based in the Randstad, the Netherlands.
+                                    Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
                                 </p>
                                 
                                 <p>
@@ -378,7 +375,7 @@ export const PortfolioPage = () => {
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 ring-1 ring-secondary ring-inset transition">
                                     {/* Company header with logo */}
                                     <div className="flex gap-6">
-                                        <div className={`hidden shrink-0 items-center justify-center overflow-hidden rounded-full sm:flex ${job.logo ? "" : "bg-brand-secondary"} ${job.company.includes("Albert Heijn") ? "size-10" : "size-12"}`}>
+                                        <div className={`hidden shrink-0 items-center justify-center overflow-hidden rounded-full sm:flex ${job.logo ? "" : "bg-brand-secondary"} ${job.company.includes("Albert Heijn") ? "size-8" : "size-12"}`}>
                                             {job.logo ? (
                                                 <>
                                                     <img src={job.logo} alt={`${job.company} logo`} className={`size-full object-cover ${job.logoDark ? "dark:hidden" : ""}`} />
@@ -406,7 +403,7 @@ export const PortfolioPage = () => {
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-1.5 left-0 hidden size-3.5 items-center justify-center sm:flex">
-                                                    <div className={`size-3 rounded-full ${position.period.includes("Present") ? "bg-brand-solid" : "bg-tertiary dark:bg-quaternary"}`} />
+                                                    <div className={`size-3 rounded-full ${position.period.includes("Present") ? "bg-brand-solid" : "bg-utility-gray-400 dark:bg-utility-gray-500"}`} />
                                                 </div>
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
@@ -452,12 +449,7 @@ export const PortfolioPage = () => {
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="flex flex-col rounded-2xl bg-secondary p-6">
-                                    <div className="flex gap-1">
-                                        {[...Array(testimonial.rating)].map((_, i) => (
-                                            <Star01 key={i} className="size-5 fill-warning-solid text-warning-solid" />
-                                        ))}
-                                    </div>
-                                    <p className="mt-4 flex-1 text-secondary">{testimonial.content}</p>
+                                    <p className="flex-1 text-secondary">{testimonial.content}</p>
                                     <div className="mt-6 flex items-center gap-3">
                                         <Avatar size="md" src={testimonial.avatar} alt={testimonial.name} />
                                         <div>
