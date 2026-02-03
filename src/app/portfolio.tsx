@@ -48,7 +48,8 @@ const skills = [
 const experience = [
     {
         company: "Valsplat",
-        logo: "/valsplat.png",
+        logo: "/valsplat-black.png",
+        logoDark: "/valsplat-white.png",
         description: "At Valsplat I have worked for a lot of big clients, some for a longer time (2 years at Dutch Ministry of Health) and others for only a design sprint of 1 week for example. I've learned a lot from all these different clients and all the people I met but specially the people at Valsplat each with their own curiosity and expertise. At Valsplat I also learned putting users first, never build something on assumptions but design with insights and validate your choices to make real meaningful products.",
         positions: [
             {
@@ -88,6 +89,11 @@ const experience = [
         logo: "/ahold.png",
         description: "During my graduation internship at Albert Heijn, I worked on my thesis with the goal of improving the Track & Trace user experience of the Albert Heijn app. To this day, the prototype that I designed for Track & Trace is used by the team, developed, and is currently live. This graduation project got rewarded with a 10 from the Hogeschool Rotterdam, and therefore I successfully graduated my Bachelor's degree.",
         positions: [
+            {
+                role: "Junior UX Designer",
+                period: "2021",
+                projects: [],
+            },
             {
                 role: "Graduation Intern UX Designer",
                 period: "2021",
@@ -361,7 +367,12 @@ export const PortfolioPage = () => {
                                     <div className="flex gap-6">
                                         <div className={`hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full sm:flex ${job.logo ? "" : "bg-brand-secondary"}`}>
                                             {job.logo ? (
-                                                <img src={job.logo} alt={`${job.company} logo`} className="size-full object-cover" />
+                                                <>
+                                                    <img src={job.logo} alt={`${job.company} logo`} className={`size-full object-cover ${job.logoDark ? "dark:hidden" : ""}`} />
+                                                    {job.logoDark && (
+                                                        <img src={job.logoDark} alt={`${job.company} logo`} className="hidden size-full object-cover dark:block" />
+                                                    )}
+                                                </>
                                             ) : (
                                                 <Briefcase02 className="size-6 text-brand-solid" />
                                             )}
@@ -378,7 +389,7 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative sm:pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-1.5 hidden h-full w-px bg-border-secondary sm:block" />
+                                                    <div className="absolute top-2.5 left-1.5 hidden w-px bg-border-secondary sm:block" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
                                                 {job.positions.length > 1 && (
