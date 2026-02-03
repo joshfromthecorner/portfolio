@@ -84,44 +84,26 @@ const experience = [
         ],
     },
     {
-        company: "StartupXYZ",
-        description: "Built and shipped 3 major products from concept to production.",
+        company: "Ahold Delhaize - Albert Heijn app",
+        logo: "/ahold.png",
+        description: "During my graduation internship at Albert Heijn, I worked on my thesis with the goal of improving the Track & Trace user experience of the Albert Heijn app. To this day, the prototype that I designed for Track & Trace is used by the team, developed, and is currently live. This graduation project got rewarded with a 10 from the Hogeschool Rotterdam, and therefore I successfully graduated my Bachelor's degree.",
         positions: [
             {
-                role: "Full Stack Developer",
-                period: "2020 - 2022",
-                projects: [
-                    {
-                        title: "E-Commerce Platform",
-                        description: "Full-stack e-commerce solution with real-time inventory management.",
-                        tags: ["Next.js", "Stripe", "PostgreSQL"],
-                        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop",
-                    },
-                    {
-                        title: "Analytics Dashboard",
-                        description: "Real-time analytics dashboard processing 1M+ events daily.",
-                        tags: ["React", "D3.js", "WebSockets"],
-                        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-                    },
-                ],
+                role: "Graduation Intern UX Designer",
+                period: "2021",
+                projects: [],
             },
         ],
     },
     {
-        company: "Digital Agency",
-        description: "Developed responsive websites and web applications for clients.",
+        company: "AirFrance - KLM Cargo",
+        logo: "/klm.png",
+        description: "At KLM I was part of the Air France KLM Digital Cargo team. My goal was to improve the user experience of myCargo. In collaboration with design agency Valsplat I created designs and prototypes to help the development team in France. I am very proud that at the end of my internship I successfully designed the Allotments Tool/API for in myCargo.",
         positions: [
             {
-                role: "Junior Developer",
-                period: "2018 - 2020",
-                projects: [
-                    {
-                        title: "Client Portals",
-                        description: "Built custom client portals for 20+ enterprise clients.",
-                        tags: ["Vue.js", "Node.js", "MongoDB"],
-                        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-                    },
-                ],
+                role: "Intern UX Designer",
+                period: "2020",
+                projects: [],
             },
         ],
     },
