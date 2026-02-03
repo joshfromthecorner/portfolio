@@ -12,10 +12,23 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-    title: "Joshua - Product Designer",
-    description: "Product Designer helping teams create meaningful products through research-driven design",
+    title: "Joshua - Product Designer | Research-Driven Design",
+    description: "Product Designer helping teams create meaningful products through research-driven design. Experienced in scrum product development across PostNL, Sunweb, BNG Bank, OVpay, NVM, Air France–KLM Cargo, Albert Heijn, and Dutch Ministry of Health.",
+    keywords: ["Product Designer", "UX Designer", "UI Designer", "Design Systems", "User Research", "Figma", "Design Thinking"],
+    authors: [{ name: "Joshua" }],
+    openGraph: {
+        title: "Joshua - Product Designer",
+        description: "Product Designer helping teams create meaningful products through research-driven design",
+        type: "website",
+        locale: "en_US",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Joshua - Product Designer",
+        description: "Product Designer helping teams create meaningful products through research-driven design",
+    },
     icons: {
-        icon: [],
+        icon: "/favicon.ico",
     },
 };
 

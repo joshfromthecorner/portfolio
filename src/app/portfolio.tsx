@@ -37,12 +37,12 @@ const projects = [
 ];
 
 const skills = [
-    { name: "React / Next.js", level: "Expert" },
-    { name: "TypeScript", level: "Expert" },
-    { name: "Node.js", level: "Advanced" },
-    { name: "Python", level: "Advanced" },
-    { name: "PostgreSQL", level: "Advanced" },
-    { name: "AWS / Cloud", level: "Intermediate" },
+    { name: "User Research & Testing", level: "Expert" },
+    { name: "UI/UX Design", level: "Expert" },
+    { name: "Design Systems", level: "Expert" },
+    { name: "Prototyping", level: "Advanced" },
+    { name: "Figma", level: "Expert" },
+    { name: "Design Thinking", level: "Advanced" },
 ];
 
 const experience = [
@@ -117,24 +117,24 @@ const experience = [
 
 const testimonials = [
     {
-        name: "Sarah Johnson",
-        role: "CEO at TechStartup",
+        name: "Team Lead",
+        role: "Dutch Ministry of Health",
         avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
-        content: "John is an exceptional developer who consistently delivers high-quality work. His attention to detail and problem-solving skills are outstanding.",
+        content: "Joshua's research-driven approach and ability to translate complex requirements into intuitive designs made a significant impact on our project.",
         rating: 5,
     },
     {
-        name: "Michael Chen",
-        role: "Product Manager at InnovateCo",
+        name: "Product Manager",
+        role: "Albert Heijn",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-        content: "Working with John was a pleasure. He understood our requirements perfectly and delivered a product that exceeded our expectations.",
+        content: "Joshua's Track & Trace prototype exceeded expectations and is still being used and developed by our team today.",
         rating: 5,
     },
     {
-        name: "Emily Davis",
-        role: "Founder at DesignStudio",
+        name: "Design Lead",
+        role: "Valsplat",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-        content: "John's technical expertise combined with his design sensibility made him the perfect choice for our project. Highly recommended!",
+        content: "Joshua brings curiosity and expertise to every project, always putting users first and validating design choices with real insights.",
         rating: 5,
     },
 ];
@@ -211,7 +211,7 @@ export const PortfolioPage = () => {
     const [selectedTab, setSelectedTab] = useState<Key>("experience");
 
     return (
-        <div className="relative min-h-screen w-full bg-primary">
+        <div className="relative min-h-screen w-full bg-primary scroll-smooth">
             {/* Radial Gradient Background - Light Mode */}
             <div
                 className="pointer-events-none fixed inset-0 z-0 dark:hidden"
@@ -440,40 +440,34 @@ export const PortfolioPage = () => {
                                 talk!
                             </p>
                             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                                <Button color="secondary" size="xl" iconLeading={LinkedIn} href="https://linkedin.com" target="_blank">
-                                    Chat on LinkedIn
+                                <Button color="secondary" size="xl" iconLeading={Mail01} href="mailto:joshua@example.com" target="_blank">
+                                    Get in touch
                                 </Button>
-                                <Button color="primary" size="xl" iconLeading={CalendarDate}>
+                                <Button color="primary" size="xl" iconLeading={CalendarDate} href="https://cal.com/joshua" target="_blank">
                                     Schedule a call
                                 </Button>
                                 <img
                                     src="/joshua.png"
-                                    alt=""
+                                    alt="Joshua - Product Designer"
                                     className="size-12 rounded-full bg-secondary object-cover"
                                 />
                             </div>
                             <div className="mt-8 flex items-center justify-center gap-4">
                                 <a
-                                    href="https://github.com"
+                                    href="https://linkedin.com/in/joshua"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex size-10 items-center justify-center rounded-full bg-primary text-tertiary transition hover:bg-secondary hover:text-primary"
-                                >
-                                    <GitHub className="size-5" />
-                                </a>
-                                <a
-                                    href="https://linkedin.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex size-10 items-center justify-center rounded-full bg-primary text-tertiary transition hover:bg-secondary hover:text-primary"
+                                    aria-label="Connect on LinkedIn"
                                 >
                                     <LinkedIn className="size-5" />
                                 </a>
                                 <a
-                                    href="https://x.com"
+                                    href="https://x.com/joshua"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex size-10 items-center justify-center rounded-full bg-primary text-tertiary transition hover:bg-secondary hover:text-primary"
+                                    aria-label="Follow on X (Twitter)"
                                 >
                                     <XIcon className="size-5" />
                                 </a>
@@ -486,7 +480,7 @@ export const PortfolioPage = () => {
             {/* Footer */}
             <footer className="relative z-1 pt-20 pb-8">
                 <div className="mx-auto max-w-6xl px-4 text-center text-base text-tertiary md:px-8">
-                    <p>© Made by Joshua using Cursor/Claude Code and Figma for coding and design, deployed to Github Repo connected to Vercel for hosting</p>
+                    <p>© {new Date().getFullYear()} Joshua. Made with Cursor/Claude Code and Figma. Deployed via GitHub & Vercel.</p>
                 </div>
             </footer>
         </div>
