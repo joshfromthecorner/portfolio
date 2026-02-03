@@ -47,10 +47,19 @@ const skills = [
 
 const experience = [
     {
-        role: "Senior Frontend Engineer",
-        company: "TechCorp Inc.",
-        period: "2022 - Present",
-        description: "Leading frontend architecture and mentoring a team of 5 developers.",
+        company: "Valsplat",
+        logo: "/valsplat.png",
+        description: "At Valsplat I have worked for a lot of big clients, some for a longer time (2 years at Dutch Ministry of Health) and others for only a design sprint of 1 week for example. I've learned a lot from all these different clients and all the people I met but specially the people at Valsplat each with their own curiosity and expertise. At Valsplat I also learned putting users first, never build something on assumptions but design with insights and validate your choices to make real meaningful products.",
+        positions: [
+            {
+                role: "Medior Product Designer",
+                period: "Mar 2023 - Present",
+            },
+            {
+                role: "Junior Product Designer",
+                period: "Sep 2021 - Apr 2023",
+            },
+        ],
         projects: [
             {
                 title: "Design System",
@@ -67,10 +76,14 @@ const experience = [
         ],
     },
     {
-        role: "Full Stack Developer",
         company: "StartupXYZ",
-        period: "2020 - 2022",
         description: "Built and shipped 3 major products from concept to production.",
+        positions: [
+            {
+                role: "Full Stack Developer",
+                period: "2020 - 2022",
+            },
+        ],
         projects: [
             {
                 title: "E-Commerce Platform",
@@ -87,10 +100,14 @@ const experience = [
         ],
     },
     {
-        role: "Junior Developer",
         company: "Digital Agency",
-        period: "2018 - 2020",
         description: "Developed responsive websites and web applications for clients.",
+        positions: [
+            {
+                role: "Junior Developer",
+                period: "2018 - 2020",
+            },
+        ],
         projects: [
             {
                 title: "Client Portals",
@@ -351,20 +368,38 @@ export const PortfolioPage = () => {
                             {experience.map((job, index) => (
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 transition">
                                     <div className="flex gap-6">
-                                        <div className="hidden size-12 shrink-0 items-center justify-center rounded-full bg-brand-secondary sm:flex">
-                                            <Briefcase02 className="size-6 text-brand-solid" />
+                                        <div className="hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-secondary sm:flex">
+                                            {job.logo ? (
+                                                <img src={job.logo} alt={`${job.company} logo`} className="size-full object-cover" />
+                                            ) : (
+                                                <Briefcase02 className="size-6 text-brand-solid" />
+                                            )}
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex flex-wrap items-start justify-between gap-2">
                                                 <div>
-                                                    <h3 className="font-semibold text-primary">{job.role}</h3>
+                                                    <h3 className="font-semibold text-primary">{job.positions[0].role}</h3>
                                                     <p className="text-base text-brand-solid">{job.company}</p>
                                                 </div>
                                                 <Badge color="gray" size="sm">
-                                                    {job.period}
+                                                    {job.positions[0].period}
                                                 </Badge>
                                             </div>
                                             <p className="mt-3 text-base text-tertiary">{job.description}</p>
+
+                                            {/* Additional positions */}
+                                            {job.positions.length > 1 && (
+                                                <div className="mt-4 border-t border-secondary pt-4 space-y-3">
+                                                    {job.positions.slice(1).map((position, posIndex) => (
+                                                        <div key={posIndex} className="flex flex-wrap items-center justify-between gap-2">
+                                                            <p className="text-sm font-medium text-secondary">{position.role}</p>
+                                                            <Badge color="gray" size="sm">
+                                                                {position.period}
+                                                            </Badge>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                     {/* Project Cards */}
