@@ -54,24 +54,32 @@ const experience = [
             {
                 role: "Medior Product Designer",
                 period: "Mar 2023 - Present",
+                projects: [
+                    {
+                        title: "Design System",
+                        description: "Built a comprehensive design system used across 12 products.",
+                        tags: ["React", "TypeScript", "Storybook"],
+                        image: "https://images.unsplash.com/photo-1618788372246-79faff0c3742?w=600&h=400&fit=crop",
+                    },
+                    {
+                        title: "Performance Optimization",
+                        description: "Reduced load times by 40% through code splitting and lazy loading.",
+                        tags: ["Webpack", "Core Web Vitals"],
+                        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+                    },
+                ],
             },
             {
                 role: "Junior Product Designer",
                 period: "Sep 2021 - Apr 2023",
-            },
-        ],
-        projects: [
-            {
-                title: "Design System",
-                description: "Built a comprehensive design system used across 12 products.",
-                tags: ["React", "TypeScript", "Storybook"],
-                image: "https://images.unsplash.com/photo-1618788372246-79faff0c3742?w=600&h=400&fit=crop",
-            },
-            {
-                title: "Performance Optimization",
-                description: "Reduced load times by 40% through code splitting and lazy loading.",
-                tags: ["Webpack", "Core Web Vitals"],
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+                projects: [
+                    {
+                        title: "Client Portals",
+                        description: "Built custom client portals for 20+ enterprise clients.",
+                        tags: ["Vue.js", "Node.js", "MongoDB"],
+                        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+                    },
+                ],
             },
         ],
     },
@@ -82,20 +90,20 @@ const experience = [
             {
                 role: "Full Stack Developer",
                 period: "2020 - 2022",
-            },
-        ],
-        projects: [
-            {
-                title: "E-Commerce Platform",
-                description: "Full-stack e-commerce solution with real-time inventory management.",
-                tags: ["Next.js", "Stripe", "PostgreSQL"],
-                image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop",
-            },
-            {
-                title: "Analytics Dashboard",
-                description: "Real-time analytics dashboard processing 1M+ events daily.",
-                tags: ["React", "D3.js", "WebSockets"],
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+                projects: [
+                    {
+                        title: "E-Commerce Platform",
+                        description: "Full-stack e-commerce solution with real-time inventory management.",
+                        tags: ["Next.js", "Stripe", "PostgreSQL"],
+                        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop",
+                    },
+                    {
+                        title: "Analytics Dashboard",
+                        description: "Real-time analytics dashboard processing 1M+ events daily.",
+                        tags: ["React", "D3.js", "WebSockets"],
+                        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+                    },
+                ],
             },
         ],
     },
@@ -106,14 +114,14 @@ const experience = [
             {
                 role: "Junior Developer",
                 period: "2018 - 2020",
-            },
-        ],
-        projects: [
-            {
-                title: "Client Portals",
-                description: "Built custom client portals for 20+ enterprise clients.",
-                tags: ["Vue.js", "Node.js", "MongoDB"],
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+                projects: [
+                    {
+                        title: "Client Portals",
+                        description: "Built custom client portals for 20+ enterprise clients.",
+                        tags: ["Vue.js", "Node.js", "MongoDB"],
+                        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+                    },
+                ],
             },
         ],
     },
@@ -367,10 +375,11 @@ export const PortfolioPage = () => {
                         <div className="space-y-8">
                             {experience.map((job, index) => (
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 transition">
+                                    {/* Company header with logo */}
                                     <div className="flex gap-6">
-                                        <div className="hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-secondary sm:flex">
+                                        <div className="hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary sm:flex">
                                             {job.logo ? (
-                                                <img src={job.logo} alt={`${job.company} logo`} className="size-full object-cover" />
+                                                <img src={job.logo} alt={`${job.company} logo`} className="size-8 object-contain" />
                                             ) : (
                                                 <Briefcase02 className="size-6 text-brand-solid" />
                                             )}
@@ -386,26 +395,13 @@ export const PortfolioPage = () => {
                                                 </Badge>
                                             </div>
                                             <p className="mt-3 text-base text-tertiary">{job.description}</p>
-
-                                            {/* Additional positions */}
-                                            {job.positions.length > 1 && (
-                                                <div className="mt-4 border-t border-secondary pt-4 space-y-3">
-                                                    {job.positions.slice(1).map((position, posIndex) => (
-                                                        <div key={posIndex} className="flex flex-wrap items-center justify-between gap-2">
-                                                            <p className="text-sm font-medium text-secondary">{position.role}</p>
-                                                            <Badge color="gray" size="sm">
-                                                                {position.period}
-                                                            </Badge>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
                                         </div>
                                     </div>
-                                    {/* Project Cards */}
-                                    {job.projects && job.projects.length > 0 && (
+
+                                    {/* First position project cards */}
+                                    {job.positions[0].projects && job.positions[0].projects.length > 0 && (
                                         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                                            {job.projects.map((project, projectIndex) => (
+                                            {job.positions[0].projects.map((project, projectIndex) => (
                                                 <div
                                                     key={projectIndex}
                                                     className="overflow-hidden rounded-lg border border-primary bg-primary"
@@ -432,6 +428,47 @@ export const PortfolioPage = () => {
                                             ))}
                                         </div>
                                     )}
+
+                                    {/* Additional positions with their own cards */}
+                                    {job.positions.slice(1).map((position, posIndex) => (
+                                        <div key={posIndex} className="mt-8 border-t border-primary pt-6">
+                                            <div className="flex flex-wrap items-start justify-between gap-2 sm:pl-18">
+                                                <h3 className="font-semibold text-primary">{position.role}</h3>
+                                                <Badge color="gray" size="sm">
+                                                    {position.period}
+                                                </Badge>
+                                            </div>
+                                            {position.projects && position.projects.length > 0 && (
+                                                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                                                    {position.projects.map((project, projectIndex) => (
+                                                        <div
+                                                            key={projectIndex}
+                                                            className="overflow-hidden rounded-lg border border-primary bg-primary"
+                                                        >
+                                                            <div className="aspect-video overflow-hidden">
+                                                                <img
+                                                                    src={project.image}
+                                                                    alt={project.title}
+                                                                    className="size-full object-cover"
+                                                                />
+                                                            </div>
+                                                            <div className="p-4">
+                                                                <h4 className="font-medium text-primary">{project.title}</h4>
+                                                                <p className="mt-1 text-base text-tertiary">{project.description}</p>
+                                                                <div className="mt-3 flex flex-wrap gap-2">
+                                                                    {project.tags.map((tag) => (
+                                                                        <Badge key={tag} color="gray" size="sm">
+                                                                            {tag}
+                                                                        </Badge>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
                                 </div>
                             ))}
                         </div>
