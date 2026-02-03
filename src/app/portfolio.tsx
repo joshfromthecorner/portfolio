@@ -211,7 +211,15 @@ export const PortfolioPage = () => {
     const [selectedTab, setSelectedTab] = useState<Key>("experience");
 
     return (
-        <div className="min-h-screen bg-primary">
+        <div className="relative min-h-screen w-full overflow-hidden bg-white dark:bg-gray-950">
+            {/* Light Sky Blue Glow */}
+            <div
+                className="pointer-events-none absolute inset-0 z-0"
+                style={{
+                    backgroundImage: "radial-gradient(circle at center, #93c5fd, transparent)",
+                }}
+            />
+
             {/* Header */}
             <header className="absolute top-0 left-0 right-0 z-10 flex h-18 w-full items-center justify-center bg-transparent md:h-20">
                 <div className="mx-auto flex size-full max-w-6xl flex-1 items-center justify-between px-4 md:px-8">
@@ -224,54 +232,6 @@ export const PortfolioPage = () => {
 
             {/* Hero Section */}
             <section className="relative overflow-hidden pb-16 pt-8 md:pb-40 md:pt-40">
-                {/* Dashed Top Fade Grid - Light Mode */}
-                <div
-                    className="pointer-events-none absolute inset-0 z-0 dark:hidden"
-                    style={{
-                        backgroundImage: `
-                            linear-gradient(to right, #e7e5e4 1px, transparent 1px),
-                            linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
-                        `,
-                        backgroundSize: "20px 20px",
-                        backgroundPosition: "0 0, 0 0",
-                        maskImage: `
-                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
-                        `,
-                        WebkitMaskImage: `
-                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
-                        `,
-                        maskComposite: "intersect",
-                        WebkitMaskComposite: "source-in",
-                    }}
-                />
-                {/* Dashed Top Fade Grid - Dark Mode */}
-                <div
-                    className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
-                    style={{
-                        backgroundImage: `
-                            linear-gradient(to right, #3f3f46 1px, transparent 1px),
-                            linear-gradient(to bottom, #3f3f46 1px, transparent 1px)
-                        `,
-                        backgroundSize: "20px 20px",
-                        backgroundPosition: "0 0, 0 0",
-                        maskImage: `
-                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
-                        `,
-                        WebkitMaskImage: `
-                            repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-                            repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-                            radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
-                        `,
-                        maskComposite: "intersect",
-                        WebkitMaskComposite: "source-in",
-                    }}
-                />
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
