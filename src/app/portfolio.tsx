@@ -385,90 +385,66 @@ export const PortfolioPage = () => {
                                             )}
                                         </div>
                                         <div className="flex-1">
-                                            <div className="flex flex-wrap items-start justify-between gap-2">
-                                                <div>
-                                                    <h3 className="font-semibold text-primary">{job.positions[0].role}</h3>
-                                                    <p className="text-base text-brand-solid">{job.company}</p>
-                                                </div>
-                                                <Badge color="gray" size="sm">
-                                                    {job.positions[0].period}
-                                                </Badge>
-                                            </div>
-                                            <p className="mt-3 text-base text-tertiary">{job.description}</p>
+                                            <p className="text-base font-semibold text-brand-solid">{job.company}</p>
+                                            <p className="mt-2 text-base text-tertiary">{job.description}</p>
                                         </div>
                                     </div>
 
-                                    {/* First position project cards */}
-                                    {job.positions[0].projects && job.positions[0].projects.length > 0 && (
-                                        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                                            {job.positions[0].projects.map((project, projectIndex) => (
-                                                <div
-                                                    key={projectIndex}
-                                                    className="overflow-hidden rounded-lg border border-primary bg-primary"
-                                                >
-                                                    <div className="aspect-video overflow-hidden">
-                                                        <img
-                                                            src={project.image}
-                                                            alt={project.title}
-                                                            className="size-full object-cover"
-                                                        />
+                                    {/* Positions with timeline */}
+                                    <div className="mt-6 sm:pl-18">
+                                        {job.positions.map((position, posIndex) => (
+                                            <div key={posIndex} className={`relative sm:pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
+                                                {/* Timeline line connecting positions */}
+                                                {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
+                                                    <div className="absolute top-2.5 left-1.5 hidden h-full w-px bg-border-secondary sm:block" />
+                                                )}
+                                                {/* Timeline dot */}
+                                                {job.positions.length > 1 && (
+                                                    <div className="absolute top-1.5 left-0 hidden size-3.5 items-center justify-center sm:flex">
+                                                        <div className={`size-3 rounded-full border-2 ${posIndex === 0 ? "border-brand-solid bg-brand-solid" : "border-tertiary bg-primary"}`} />
                                                     </div>
-                                                    <div className="p-4">
-                                                        <h4 className="font-medium text-primary">{project.title}</h4>
-                                                        <p className="mt-1 text-base text-tertiary">{project.description}</p>
-                                                        <div className="mt-3 flex flex-wrap gap-2">
-                                                            {project.tags.map((tag) => (
-                                                                <Badge key={tag} color="gray" size="sm">
-                                                                    {tag}
-                                                                </Badge>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
+                                                )}
 
-                                    {/* Additional positions with their own cards */}
-                                    {job.positions.slice(1).map((position, posIndex) => (
-                                        <div key={posIndex} className="mt-8 border-t border-primary pt-6">
-                                            <div className="flex flex-wrap items-start justify-between gap-2 sm:pl-18">
-                                                <h3 className="font-semibold text-primary">{position.role}</h3>
-                                                <Badge color="gray" size="sm">
-                                                    {position.period}
-                                                </Badge>
-                                            </div>
-                                            {position.projects && position.projects.length > 0 && (
-                                                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                                                    {position.projects.map((project, projectIndex) => (
-                                                        <div
-                                                            key={projectIndex}
-                                                            className="overflow-hidden rounded-lg border border-primary bg-primary"
-                                                        >
-                                                            <div className="aspect-video overflow-hidden">
-                                                                <img
-                                                                    src={project.image}
-                                                                    alt={project.title}
-                                                                    className="size-full object-cover"
-                                                                />
-                                                            </div>
-                                                            <div className="p-4">
-                                                                <h4 className="font-medium text-primary">{project.title}</h4>
-                                                                <p className="mt-1 text-base text-tertiary">{project.description}</p>
-                                                                <div className="mt-3 flex flex-wrap gap-2">
-                                                                    {project.tags.map((tag) => (
-                                                                        <Badge key={tag} color="gray" size="sm">
-                                                                            {tag}
-                                                                        </Badge>
-                                                                    ))}
+                                                <div className="flex flex-wrap items-start justify-between gap-2">
+                                                    <h3 className="font-semibold text-primary">{position.role}</h3>
+                                                    <Badge color="gray" size="sm">
+                                                        {position.period}
+                                                    </Badge>
+                                                </div>
+
+                                                {/* Position project cards */}
+                                                {position.projects && position.projects.length > 0 && (
+                                                    <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                                                        {position.projects.map((project, projectIndex) => (
+                                                            <div
+                                                                key={projectIndex}
+                                                                className="overflow-hidden rounded-lg border border-primary bg-primary"
+                                                            >
+                                                                <div className="aspect-video overflow-hidden">
+                                                                    <img
+                                                                        src={project.image}
+                                                                        alt={project.title}
+                                                                        className="size-full object-cover"
+                                                                    />
+                                                                </div>
+                                                                <div className="p-4">
+                                                                    <h4 className="font-medium text-primary">{project.title}</h4>
+                                                                    <p className="mt-1 text-base text-tertiary">{project.description}</p>
+                                                                    <div className="mt-3 flex flex-wrap gap-2">
+                                                                        {project.tags.map((tag) => (
+                                                                            <Badge key={tag} color="gray" size="sm">
+                                                                                {tag}
+                                                                            </Badge>
+                                                                        ))}
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             ))}
                         </div>
