@@ -86,7 +86,7 @@ const experience = [
     },
     {
         company: "Ahold Delhaize - Albert Heijn app",
-        logo: "/ahold.png",
+        logo: "/albert-heijn.png",
         description: "During my graduation internship at Albert Heijn, I worked on my thesis with the goal of improving the Track & Trace user experience of the Albert Heijn app. To this day, the prototype that I designed for Track & Trace is used by the team, developed, and is currently live. This graduation project got rewarded with a 10 from the Hogeschool Rotterdam, and therefore I successfully graduated my Bachelor's degree.",
         positions: [
             {
@@ -250,7 +250,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative z-1 overflow-hidden pb-16 pt-8 md:pb-40 md:pt-40">
+            <section className="relative z-1 overflow-hidden pb-16 pt-8 md:pb-24 md:pt-40">
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
@@ -324,13 +324,6 @@ export const PortfolioPage = () => {
                                             <ArrowUpRight className="size-5 text-tertiary transition group-hover:text-brand-solid" />
                                         </div>
                                         <p className="mt-2 text-base text-tertiary">{project.description}</p>
-                                        <div className="mt-4 flex flex-wrap gap-2">
-                                            {project.tags.map((tag) => (
-                                                <Badge key={tag} color="gray" size="sm">
-                                                    {tag}
-                                                </Badge>
-                                            ))}
-                                        </div>
                                     </div>
                                 </a>
                             ))}
@@ -377,9 +370,9 @@ export const PortfolioPage = () => {
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
                                                     <h3 className="font-semibold text-primary">{position.role}</h3>
-                                                    <Badge color="gray" size="sm">
+                                                    <span className="text-base text-tertiary">
                                                         {position.period}
-                                                    </Badge>
+                                                    </span>
                                                 </div>
 
                                                 {/* Position project cards */}
@@ -400,13 +393,6 @@ export const PortfolioPage = () => {
                                                                 <div className="p-4">
                                                                     <h4 className="font-medium text-primary">{project.title}</h4>
                                                                     <p className="mt-1 text-base text-tertiary">{project.description}</p>
-                                                                    <div className="mt-3 flex flex-wrap gap-2">
-                                                                        {project.tags.map((tag) => (
-                                                                            <Badge key={tag} color="gray" size="sm">
-                                                                                {tag}
-                                                                            </Badge>
-                                                                        ))}
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         ))}

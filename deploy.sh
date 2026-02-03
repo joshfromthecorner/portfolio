@@ -18,7 +18,7 @@ git add -A
 
 # Commit changes
 echo "💾 Committing changes..."
-git commit -m "feat: add borders to work experience blocks, update descriptions and dates, add D-signwrk experience" || echo "No changes to commit or already committed"
+git commit -m "feat: update Albert Heijn logo, remove date badges, adjust hero padding, remove project card badges" || echo "No changes to commit or already committed"
 
 # Push to trigger Vercel deployment
 echo "🚀 Pushing to GitHub (this will trigger Vercel deployment)..."
