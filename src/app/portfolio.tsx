@@ -212,11 +212,12 @@ export const PortfolioPage = () => {
 
     return (
         <div className="relative min-h-screen w-full overflow-hidden bg-white dark:bg-gray-950">
-            {/* Light Sky Blue Glow */}
+            {/* Soft Blue Radial Background */}
             <div
                 className="pointer-events-none absolute inset-0 z-0"
                 style={{
-                    backgroundImage: "radial-gradient(circle at center, #93c5fd, transparent)",
+                    background: "#ffffff",
+                    backgroundImage: "radial-gradient(circle at top center, rgba(59, 130, 246, 0.5), transparent 70%)",
                 }}
             />
 
