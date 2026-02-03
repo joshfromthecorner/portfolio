@@ -216,19 +216,19 @@ export const PortfolioPage = () => {
             <div
                 className="pointer-events-none fixed inset-0 z-0 dark:hidden"
                 style={{
-                    background: "radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%)",
+                    background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, rgba(46, 144, 250, 0.3) 100%)",
                 }}
             />
             {/* Radial Gradient Background - Dark Mode */}
             <div
                 className="pointer-events-none fixed inset-0 z-0 hidden dark:block"
                 style={{
-                    background: "radial-gradient(125% 125% at 50% 10%, #09090b 40%, #6366f1 100%)",
+                    background: "radial-gradient(125% 125% at 50% 90%, #09090b 40%, rgba(23, 92, 211, 0.4) 100%)",
                 }}
             />
 
             {/* Header */}
-            <header className="absolute top-0 left-0 right-0 z-10 flex h-18 w-full items-center justify-center bg-transparent md:h-20">
+            <header className="absolute top-0 left-0 right-0 z-10 flex h-18 w-full items-center justify-center md:h-20">
                 <div className="mx-auto flex size-full max-w-6xl flex-1 items-center justify-between px-4 md:px-8">
                     <div className="text-primary">
                         <JoshuaLogo />
@@ -238,7 +238,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden pb-16 pt-8 md:pb-40 md:pt-40">
+            <section className="relative z-1 overflow-hidden pb-16 pt-8 md:pb-40 md:pt-40">
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
@@ -267,7 +267,7 @@ export const PortfolioPage = () => {
             </section>
 
             {/* Tabs Section */}
-            <div className="mx-auto max-w-6xl px-4 md:px-8">
+            <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
                 <NativeSelect
                     aria-label="Tabs"
                     value={selectedTab as string}
@@ -484,7 +484,7 @@ export const PortfolioPage = () => {
             </div>
 
             {/* Footer */}
-            <footer className="pt-20 pb-8">
+            <footer className="relative z-1 pt-20 pb-8">
                 <div className="mx-auto max-w-6xl px-4 text-center text-base text-tertiary md:px-8">
                     <p>© Made by Joshua using Cursor/Claude Code and Figma for coding and design, deployed to Github Repo connected to Vercel for hosting</p>
                 </div>
