@@ -377,9 +377,9 @@ export const PortfolioPage = () => {
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 transition">
                                     {/* Company header with logo */}
                                     <div className="flex gap-6">
-                                        <div className="hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary sm:flex">
+                                        <div className={`hidden size-12 shrink-0 items-center justify-center overflow-hidden rounded-full sm:flex ${job.logo ? "" : "bg-brand-secondary"}`}>
                                             {job.logo ? (
-                                                <img src={job.logo} alt={`${job.company} logo`} className="size-8 object-contain" />
+                                                <img src={job.logo} alt={`${job.company} logo`} className="size-full object-cover" />
                                             ) : (
                                                 <Briefcase02 className="size-6 text-brand-solid" />
                                             )}
