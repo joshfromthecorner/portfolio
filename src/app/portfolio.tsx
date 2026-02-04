@@ -419,37 +419,12 @@ export const PortfolioPage = () => {
                                 talk!
                             </p>
                             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                                <Button color="secondary" size="xl" iconLeading={Mail01} href="mailto:joshua@example.com" target="_blank">
-                                    Get in touch
+                                <Button color="secondary" size="xl" iconLeading={LinkedIn} href="https://linkedin.com/in/joshua" target="_blank">
+                                    Chat on LinkedIn
                                 </Button>
-                                <Button color="primary" size="xl" iconLeading={CalendarDate} href="https://cal.com/joshua" target="_blank">
+                                <Button color="primary" size="xl" iconLeading={CalendarDate} href="https://cal.com/joshua" target="_blank" className="[&_*[data-icon]]:text-white">
                                     Schedule a call
                                 </Button>
-                                <img
-                                    src="/joshua.png"
-                                    alt="Joshua - Product Designer"
-                                    className="size-12 rounded-full bg-secondary object-cover"
-                                />
-                            </div>
-                            <div className="mt-8 flex items-center justify-center gap-4">
-                                <a
-                                    href="https://linkedin.com/in/joshua"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex size-10 items-center justify-center rounded-full bg-primary text-tertiary transition hover:bg-secondary hover:text-primary"
-                                    aria-label="Connect on LinkedIn"
-                                >
-                                    <LinkedIn className="size-5" />
-                                </a>
-                                <a
-                                    href="https://x.com/joshua"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex size-10 items-center justify-center rounded-full bg-primary text-tertiary transition hover:bg-secondary hover:text-primary"
-                                    aria-label="Follow on X (Twitter)"
-                                >
-                                    <XIcon className="size-5" />
-                                </a>
                             </div>
                         </div>
                     </section>
