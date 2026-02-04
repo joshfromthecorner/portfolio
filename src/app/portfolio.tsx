@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { Key } from "react-aria-components";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, ArrowUpRight, Briefcase02, CalendarDate, Code02, Mail01, MessageChatCircle, Moon01, PlayCircle, Sun, User01 } from "@untitledui/icons";
 import { useTheme } from "next-themes";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Badge } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
-import { Tabs } from "@/components/application/tabs/tabs";
+import { FloatingNav } from "@/components/floating-nav";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { GitHub, LinkedIn, X as XIcon } from "@/components/foundations/social-icons";
 
@@ -147,13 +147,6 @@ const testimonials = [
     },
 ];
 
-const tabItems = [
-    { id: "experience", label: "Work", icon: Briefcase02 },
-    { id: "about", label: "About", icon: User01 },
-    { id: "testimonials", label: "Testimonials", icon: MessageChatCircle },
-    { id: "contact", label: "Contact", icon: Mail01 },
-];
-
 const JoshuaLogo = () => {
     return (
         <div className="flex items-center gap-2.5">
@@ -202,8 +195,10 @@ const ThemeToggle = () => {
     );
 };
 
+const sectionIds = ["experience", "about", "testimonials", "contact"];
+
 export const PortfolioPage = () => {
-    const [selectedTab, setSelectedTab] = useState<Key>("experience");
+    const activeSection = useActiveSection(sectionIds);
 
     return (
         <div className="relative min-h-screen w-full bg-primary scroll-smooth">
@@ -240,8 +235,8 @@ export const PortfolioPage = () => {
                         {/* Badge/Pill */}
                         <Badge color="success" size="lg" className="mb-6">
                             <span className="relative mr-1 inline-block size-2">
-                                <span className="absolute inset-0 animate-ping rounded-full bg-utility-success-500 opacity-75" />
-                                <span className="relative inline-block size-2 rounded-full bg-utility-success-500" />
+                                <span className="absolute inset-0 z-0 animate-ping rounded-full bg-utility-success-500 opacity-75" />
+                                <span className="relative z-10 inline-block size-2 rounded-full bg-utility-success-500" />
                             </span>
                             Product Designer at Valsplat
                         </Badge>
@@ -260,99 +255,11 @@ export const PortfolioPage = () => {
                 </div>
             </section>
 
-            {/* Tabs Section */}
+            {/* Sections */}
             <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
-                <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab}>
-                    <Tabs.List type="button-border" size="md" fullWidth items={tabItems.map(({ icon, ...rest }) => rest)}>
-                        {tabItems.map((tab) => (
-                            <Tabs.Item key={tab.id} id={tab.id}>
-                                <tab.icon className="size-5" />
-                                {tab.label}
-                            </Tabs.Item>
-                        ))}
-                    </Tabs.List>
 
-                    {/* About Tab */}
-                    <Tabs.Panel id="about" className="py-16 md:py-24">
-                        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-                            {/* Text Content */}
-                            <div className="order-2 space-y-6 text-base leading-relaxed text-tertiary lg:order-1">
-                                <p className="text-lg font-medium text-primary">
-                                    Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
-                                </p>
-                                
-                                <p>
-                                    I enjoy tackling diverse design challenges and focus on bringing ideas to life, whether that's solving complex problems for clients or exploring DIY projects at home (I'm currently busy building my own furniture).
-                                </p>
-                                
-                                <p>
-                                    My design journey started at a Graphic Design college. During my internships, I worked on digital advertising for brands like KPN and MediaMarkt. At first, I was proud of creating these campaigns, but over time I realized that people don't necessarily enjoy being interrupted by ads while reading the news. That insight pushed me toward creating products people genuinely love to use.
-                                </p>
-                                
-                                <p>
-                                    After graduating, I went on to study Communication & Multimedia Design (BSc) in Rotterdam. During this period, I completed an internship at Air France - KLM, which also marked my first encounter with Valsplat, as they were working together at the time. Little did I know that I would end up working at Valsplat myself, now already for five years.
-                                </p>
-                                
-                                <p>
-                                    For my graduation project, I completed an internship at Ahold Delhaize, working on the Albert Heijn app. I graduated with a grade of 10 for my thesis. Shortly after, while looking for an open role, I heard through a former colleague at KLM that Valsplat was looking for a new designer. Things moved quickly from there.
-                                </p>
-                                
-                                <p>
-                                    I truly enjoy working at Valsplat and have learned a great deal along the way. I'm grateful for the opportunities I've been given. Through my work at Valsplat, I've gained extensive experience collaborating in Agile/Scrum product development teams across a wide range of sectors.
-                                </p>
-                                
-                                <div className="space-y-4 pt-4">
-                                    <p className="font-semibold text-primary">What do I enjoy the most in my work?</p>
-                                    <p>
-                                        I love meeting new people and working together with them, especially from different countries. Over the past few years, I have often gotten the opportunity to work with people from different backgrounds and nationalities. I discovered working with people from various backgrounds and cultures has been so much fun and was beneficial for my personal development. It has exposed me to new ideas, perspectives, and ways of life. It makes you look different from the things you are used to, therefore it also helps creativity in product development teams. Working with people from different cultures has challenged my assumptions and encouraged critical thinking, leading to personal growth and development.
-                                    </p>
-                                </div>
-                                
-                                <div className="space-y-4 pt-4">
-                                    <p className="font-semibold text-primary">What I like about Product Design/UX?</p>
-                                    <p>
-                                        The opportunity to make a positive impact and I get to see the impact of what I do. Seeing my design proposals used by end-users during the usability test is rewarding. Knowing that it is going to be used by millions of users makes it even more exciting. Solving complex problems. Multi-faceted problem-solving never gets boring. UX design involves tackling challenging problems and finding creative solutions that meet the needs of users and stakeholders. The opportunity to learn and grow. The field of UX is constantly evolving, and we as designers have the opportunity to learn new skills and techniques.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            {/* Profile Image */}
-                            <div className="order-1 flex items-start justify-center lg:order-2 lg:justify-end">
-                                <img
-                                    src="/josh-profile.jpg"
-                                    alt="Joshua - Product Designer"
-                                    className="w-full max-w-md rounded-2xl object-cover shadow-lg"
-                                />
-                            </div>
-                        </div>
-                    </Tabs.Panel>
-
-                    {/* Projects Tab */}
-                    <Tabs.Panel id="projects" className="py-16 md:py-24">
-                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                            {projects.map((project) => (
-                                <a key={project.title} href={project.link} className="group overflow-hidden rounded-2xl bg-secondary transition">
-                                    <div className="aspect-video overflow-hidden">
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            className="size-full object-cover transition duration-300 group-hover:scale-105"
-                                        />
-                                    </div>
-                                    <div className="p-5">
-                                        <div className="flex items-start justify-between gap-2">
-                                            <h3 className="font-semibold text-primary">{project.title}</h3>
-                                            <ArrowUpRight className="size-5 text-tertiary transition group-hover:text-brand-solid" />
-                                        </div>
-                                        <p className="mt-2 text-base text-tertiary">{project.description}</p>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
-                    </Tabs.Panel>
-
-                    {/* Experience Tab */}
-                    <Tabs.Panel id="experience" className="py-16 md:py-24">
+                    {/* Experience Section */}
+                    <section id="experience" className="scroll-mt-20 py-16 md:py-24">
                         <div className="space-y-8">
                             {experience.map((job, index) => (
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 ring-1 ring-secondary ring-inset transition">
@@ -428,10 +335,65 @@ export const PortfolioPage = () => {
                                 </div>
                             ))}
                         </div>
-                    </Tabs.Panel>
+                    </section>
 
-                    {/* Testimonials Tab */}
-                    <Tabs.Panel id="testimonials" className="py-16 md:py-24">
+                    {/* About Section */}
+                    <section id="about" className="scroll-mt-20 py-16 md:py-24">
+                        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+                            {/* Text Content */}
+                            <div className="order-2 space-y-6 text-base leading-relaxed text-tertiary lg:order-1">
+                                <p className="text-lg font-medium text-primary">
+                                    Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
+                                </p>
+                                
+                                <p>
+                                    I enjoy tackling diverse design challenges and focus on bringing ideas to life, whether that's solving complex problems for clients or exploring DIY projects at home (I'm currently busy building my own furniture).
+                                </p>
+                                
+                                <p>
+                                    My design journey started at a Graphic Design college. During my internships, I worked on digital advertising for brands like KPN and MediaMarkt. At first, I was proud of creating these campaigns, but over time I realized that people don't necessarily enjoy being interrupted by ads while reading the news. That insight pushed me toward creating products people genuinely love to use.
+                                </p>
+                                
+                                <p>
+                                    After graduating, I went on to study Communication & Multimedia Design (BSc) in Rotterdam. During this period, I completed an internship at Air France - KLM, which also marked my first encounter with Valsplat, as they were working together at the time. Little did I know that I would end up working at Valsplat myself, now already for five years.
+                                </p>
+                                
+                                <p>
+                                    For my graduation project, I completed an internship at Ahold Delhaize, working on the Albert Heijn app. I graduated with a grade of 10 for my thesis. Shortly after, while looking for an open role, I heard through a former colleague at KLM that Valsplat was looking for a new designer. Things moved quickly from there.
+                                </p>
+                                
+                                <p>
+                                    I truly enjoy working at Valsplat and have learned a great deal along the way. I'm grateful for the opportunities I've been given. Through my work at Valsplat, I've gained extensive experience collaborating in Agile/Scrum product development teams across a wide range of sectors.
+                                </p>
+                                
+                                <div className="space-y-4 pt-4">
+                                    <p className="font-semibold text-primary">What do I enjoy the most in my work?</p>
+                                    <p>
+                                        I love meeting new people and working together with them, especially from different countries. Over the past few years, I have often gotten the opportunity to work with people from different backgrounds and nationalities. I discovered working with people from various backgrounds and cultures has been so much fun and was beneficial for my personal development. It has exposed me to new ideas, perspectives, and ways of life. It makes you look different from the things you are used to, therefore it also helps creativity in product development teams. Working with people from different cultures has challenged my assumptions and encouraged critical thinking, leading to personal growth and development.
+                                    </p>
+                                </div>
+                                
+                                <div className="space-y-4 pt-4">
+                                    <p className="font-semibold text-primary">What I like about Product Design/UX?</p>
+                                    <p>
+                                        The opportunity to make a positive impact and I get to see the impact of what I do. Seeing my design proposals used by end-users during the usability test is rewarding. Knowing that it is going to be used by millions of users makes it even more exciting. Solving complex problems. Multi-faceted problem-solving never gets boring. UX design involves tackling challenging problems and finding creative solutions that meet the needs of users and stakeholders. The opportunity to learn and grow. The field of UX is constantly evolving, and we as designers have the opportunity to learn new skills and techniques.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {/* Profile Image */}
+                            <div className="order-1 flex items-start justify-center lg:order-2 lg:justify-end">
+                                <img
+                                    src="/josh-profile.jpg"
+                                    alt="Joshua - Product Designer"
+                                    className="w-full max-w-md rounded-2xl object-cover shadow-lg"
+                                />
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Testimonials Section */}
+                    <section id="testimonials" className="scroll-mt-20 py-16 md:py-24">
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="flex flex-col rounded-2xl bg-secondary p-6">
@@ -446,10 +408,10 @@ export const PortfolioPage = () => {
                                 </div>
                             ))}
                         </div>
-                    </Tabs.Panel>
+                    </section>
 
-                    {/* Contact Tab */}
-                    <Tabs.Panel id="contact" className="py-16 md:py-24">
+                    {/* Contact Section */}
+                    <section id="contact" className="scroll-mt-20 py-16 md:py-24">
                         <div className="rounded-2xl bg-secondary p-8 text-center md:p-12">
                             <p className="text-base font-semibold text-primary">Let&apos;s work together</p>
                             <p className="mx-auto mt-3 max-w-lg text-base text-tertiary">
@@ -490,12 +452,14 @@ export const PortfolioPage = () => {
                                 </a>
                             </div>
                         </div>
-                    </Tabs.Panel>
-                </Tabs>
+                    </section>
             </div>
 
+            {/* Floating Navigation */}
+            <FloatingNav activeSection={activeSection} />
+
             {/* Footer */}
-            <footer className="relative z-1 pt-20 pb-8">
+            <footer className="relative z-1 pt-20 pb-24">
                 <div className="mx-auto max-w-6xl px-4 text-center text-base text-tertiary md:px-8">
                     <p>© {new Date().getFullYear()} Joshua. Made with Cursor/Claude Code and Figma. Deployed via GitHub & Vercel.</p>
                 </div>
