@@ -233,7 +233,7 @@ export const PortfolioPage = () => {
                 <div className="relative mx-auto w-full max-w-[800px] px-4 md:px-8">
                     <div className="flex flex-col items-center">
                         {/* Polaroid Photo */}
-                        <div className="mb-8 rotate-[20deg] transform">
+                        <div className="mb-8 rotate-[5deg] transform">
                             <div className="rounded-lg bg-white p-2 shadow-lg">
                                 <img
                                     src="/josh-profile.jpg"

@@ -18,7 +18,7 @@ git add -A
 
 # Commit changes
 echo "💾 Committing changes..."
-git commit -m "feat: improve navigation positioning, body text line length, font sizes, and UI refinements" || echo "No changes to commit or already committed"
+git commit -m "feat: add hero section with polaroid photo, home menu item, container width changes, and UI improvements" || echo "No changes to commit or already committed"
 
 # Push to trigger Vercel deployment
 echo "🚀 Pushing to GitHub (this will trigger Vercel deployment)..."
