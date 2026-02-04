@@ -25,7 +25,7 @@ export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
     return (
         <nav
             className={cx(
-                "fixed bottom-6 left-6 z-50 md:left-20 md:top-1/2 md:bottom-auto md:-translate-y-1/2",
+                "fixed bottom-6 left-6 z-50 md:left-[calc(50%+36rem+5rem)] md:top-1/2 md:bottom-auto md:-translate-y-1/2",
                 "flex flex-row gap-1 md:flex-col rounded-xl bg-secondary_alt p-1.5 ring-1 ring-secondary ring-inset",
                 "shadow-lg backdrop-blur-sm",
             )}
@@ -37,7 +37,7 @@ export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
                         key={item.id}
                         onClick={() => handleClick(item.id)}
                         className={cx(
-                            "flex h-max cursor-pointer items-center justify-center gap-2 rounded-md whitespace-nowrap transition duration-100 ease-linear",
+                            "flex h-max cursor-pointer items-center justify-start gap-2 rounded-md whitespace-nowrap transition duration-100 ease-linear",
                             "text-md font-semibold py-2.5 px-3",
                             "text-quaternary",
                             isActive && "bg-primary_alt dark:bg-tertiary text-utility-gray-900 dark:text-white shadow-sm",

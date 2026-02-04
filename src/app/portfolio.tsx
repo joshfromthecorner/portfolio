@@ -280,7 +280,7 @@ export const PortfolioPage = () => {
                                             </div>
                                             <p className="text-lg font-semibold text-brand-solid">{job.company}</p>
                                         </div>
-                                        <p className="text-base text-tertiary pl-18 max-w-prose">{job.description}</p>
+                                        <p className="text-lg text-tertiary pl-18 max-w-prose">{job.description}</p>
                                     </div>
 
                                     {/* Positions with timeline */}
@@ -327,7 +327,7 @@ export const PortfolioPage = () => {
                                                                 </div>
                                                                 <div className="p-4">
                                                                     <h4 className="font-medium text-primary">{project.title}</h4>
-                                                                    <p className="mt-1 text-base text-tertiary max-w-prose">{project.description}</p>
+                                                                    <p className="mt-1 text-lg text-tertiary max-w-prose">{project.description}</p>
                                                                 </div>
                                                             </div>
                                                         ))}
@@ -345,7 +345,7 @@ export const PortfolioPage = () => {
                     <section id="about" className="py-16 md:py-24">
                         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                             {/* Text Content */}
-                            <div className="order-2 space-y-6 text-base leading-relaxed text-tertiary lg:order-1">
+                            <div className="order-2 space-y-6 text-lg leading-relaxed text-tertiary lg:order-1">
                                 <p className="text-lg font-medium text-primary max-w-prose">
                                     Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
                                 </p>
@@ -406,7 +406,7 @@ export const PortfolioPage = () => {
                                         <Avatar size="md" src={testimonial.avatar} alt={testimonial.name} />
                                         <div>
                                             <p className="font-semibold text-primary">{testimonial.name}</p>
-                                            <p className="text-base text-tertiary">{testimonial.role}</p>
+                                            <p className="text-lg text-tertiary">{testimonial.role}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -417,8 +417,8 @@ export const PortfolioPage = () => {
                     {/* Contact Section */}
                     <section id="contact" className="py-16 md:py-24">
                         <div className="rounded-2xl bg-secondary p-8 text-center md:p-12">
-                            <p className="text-base font-semibold text-primary">Let&apos;s work together</p>
-                            <p className="mx-auto mt-3 max-w-prose text-base text-tertiary">
+                            <p className="text-lg font-semibold text-primary">Let&apos;s work together</p>
+                            <p className="mx-auto mt-3 max-w-prose text-lg text-tertiary">
                                 I&apos;m currently available for freelance work and full-time opportunities. If you have a project in mind, let&apos;s
                                 talk!
                             </p>
@@ -439,7 +439,7 @@ export const PortfolioPage = () => {
 
             {/* Footer */}
             <footer className="relative z-1 pt-20 pb-24">
-                <div className="mx-auto max-w-6xl px-4 text-center text-base text-tertiary md:px-8">
+                <div className="mx-auto max-w-6xl px-4 text-center text-lg text-tertiary md:px-8">
                     <p>© {new Date().getFullYear()} Joshua. Made with Cursor/Claude Code and Figma. Deployed via GitHub & Vercel.</p>
                 </div>
             </footer>
