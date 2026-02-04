@@ -361,16 +361,14 @@ export const PortfolioPage = () => {
                                         <img
                                             src="/bureau-sm.png"
                                             alt="Joshua - Product Designer"
-                                            className="w-full max-w-md rounded-sm object-cover"
+                                            className="w-full max-w-[288px] rounded-sm object-cover"
                                         />
                                     </div>
                                 </div>
                             </div>
                             {/* Text Content */}
                             <div className="space-y-6 text-lg leading-relaxed text-tertiary">
-                                <p className="text-lg font-medium text-primary max-w-prose">
-                                    Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
-                                </p>
+                                <p className="font-semibold text-primary">My background</p>
                                 
                                 <p className="max-w-prose">
                                     I enjoy tackling diverse design challenges and focus on bringing ideas to life, whether that's solving complex problems for clients or exploring DIY projects at home (I'm currently busy building my own furniture).
