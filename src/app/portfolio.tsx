@@ -231,7 +231,7 @@ export const PortfolioPage = () => {
                                 <img
                                     src="/josh-profile.jpg"
                                     alt="Joshua - Product Designer"
-                                    className="w-28 rounded-sm object-cover md:w-44"
+                                    className="w-44 rounded-sm object-cover"
                                 />
                             </div>
                         </div>
@@ -247,7 +247,7 @@ export const PortfolioPage = () => {
                         </Badge>
 
                         {/* Heading */}
-                        <h1 className="max-w-[800px] text-[19px] md:text-[35px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-[800px] text-[35px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
