@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Key } from "react-aria-components";
-import { ArrowRight, ArrowUpRight, Briefcase02, CalendarDate, Code02, Mail01, Moon01, PlayCircle, Sun, User01 } from "@untitledui/icons";
+import { ArrowRight, ArrowUpRight, Briefcase02, CalendarDate, Code02, Mail01, MessageChatCircle, Moon01, PlayCircle, Sun, User01 } from "@untitledui/icons";
 import { useTheme } from "next-themes";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Badge } from "@/components/base/badges/badges";
@@ -148,10 +148,10 @@ const testimonials = [
 ];
 
 const tabItems = [
-    { id: "experience", label: "Work" },
-    { id: "about", label: "About" },
-    { id: "testimonials", label: "Testimonials" },
-    { id: "contact", label: "Contact" },
+    { id: "experience", label: "Work", icon: Briefcase02 },
+    { id: "about", label: "About", icon: User01 },
+    { id: "testimonials", label: "Testimonials", icon: MessageChatCircle },
+    { id: "contact", label: "Contact", icon: Mail01 },
 ];
 
 const JoshuaLogo = () => {
@@ -251,14 +251,10 @@ export const PortfolioPage = () => {
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
-                        <div
-                            className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary bg-primary py-1 pl-1.5 pr-3 text-base"
-                        >
-                            <Badge color="brand" size="sm">
-                                Open for work
-                            </Badge>
-                            <span className="text-base text-secondary">Current role: Product Designer at Valsplat</span>
-                        </div>
+                        <Badge color="success" size="md" className="mb-6">
+                            <span className="mr-0.5 inline-block size-2 rounded-full bg-utility-success-500" />
+                            Product Designer at Valsplat
+                        </Badge>
 
                         {/* Heading */}
                         <h1 className="max-w-4xl text-[32px] md:text-[48px] font-semibold leading-tight tracking-tight text-primary">
@@ -278,14 +274,19 @@ export const PortfolioPage = () => {
             <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
                 <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab}>
                     <Tabs.List type="button-border" size="md" fullWidth items={tabItems}>
-                        {(tab) => <Tabs.Item {...tab} />}
+                        {(tab) => (
+                            <Tabs.Item key={tab.id} id={tab.id}>
+                                <tab.icon className="size-5" />
+                                {tab.label}
+                            </Tabs.Item>
+                        )}
                     </Tabs.List>
 
                     {/* About Tab */}
                     <Tabs.Panel id="about" className="py-16 md:py-24">
                         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                             {/* Text Content */}
-                            <div className="space-y-6 text-base leading-relaxed text-tertiary">
+                            <div className="order-2 space-y-6 text-base leading-relaxed text-tertiary lg:order-1">
                                 <p className="text-lg font-medium text-primary">
                                     Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
                                 </p>
@@ -326,7 +327,7 @@ export const PortfolioPage = () => {
                             </div>
                             
                             {/* Profile Image */}
-                            <div className="flex items-start justify-center lg:justify-end">
+                            <div className="order-1 flex items-start justify-center lg:order-2 lg:justify-end">
                                 <img
                                     src="/josh-profile.jpg"
                                     alt="Joshua - Product Designer"
@@ -366,36 +367,39 @@ export const PortfolioPage = () => {
                             {experience.map((job, index) => (
                                 <div key={index} className="relative rounded-xl bg-secondary p-6 ring-1 ring-secondary ring-inset transition">
                                     {/* Company header with logo */}
-                                    <div className="flex gap-6">
-                                        <div className={`hidden shrink-0 items-center justify-center overflow-hidden rounded-full sm:flex ${job.logo ? "" : "bg-brand-secondary"} ${job.company.includes("Albert Heijn") ? "size-8" : "size-12"}`}>
-                                            {job.logo ? (
-                                                <>
-                                                    <img src={job.logo} alt={`${job.company} logo`} className={`size-full object-cover ${job.logoDark ? "dark:hidden" : ""}`} />
-                                                    {job.logoDark && (
-                                                        <img src={job.logoDark} alt={`${job.company} logo`} className="hidden size-full object-cover dark:block" />
-                                                    )}
-                                                </>
-                                            ) : (
-                                                <Briefcase02 className="size-6 text-brand-solid" />
-                                            )}
+                                    <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                                        <div className="flex items-center gap-3 sm:contents">
+                                            <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full size-12 ${job.logo ? "" : "bg-brand-secondary"}`}>
+                                                {job.logo ? (
+                                                    <>
+                                                        <img src={job.logo} alt={`${job.company} logo`} className={`size-full ${job.company.includes("Albert Heijn") ? "object-contain p-1" : "object-cover"} ${job.logoDark ? "dark:hidden" : ""}`} />
+                                                        {job.logoDark && (
+                                                            <img src={job.logoDark} alt={`${job.company} logo`} className="hidden size-full object-cover dark:block" />
+                                                        )}
+                                                    </>
+                                                ) : (
+                                                    <Briefcase02 className="size-6 text-brand-solid" />
+                                                )}
+                                            </div>
+                                            <p className="text-base font-semibold text-brand-solid sm:hidden">{job.company}</p>
                                         </div>
                                         <div className="flex-1">
-                                            <p className="text-base font-semibold text-brand-solid">{job.company}</p>
-                                            <p className="mt-2 text-base text-tertiary">{job.description}</p>
+                                            <p className="hidden text-base font-semibold text-brand-solid sm:block">{job.company}</p>
+                                            <p className="text-base text-tertiary sm:mt-2">{job.description}</p>
                                         </div>
                                     </div>
 
                                     {/* Positions with timeline */}
                                     <div className="mt-6 sm:pl-18">
                                         {job.positions.map((position, posIndex) => (
-                                            <div key={posIndex} className={`relative sm:pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
+                                            <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-1.5 hidden w-px bg-border-secondary sm:block" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-1.5 block w-0.5 bg-border-secondary" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
-                                                <div className="absolute top-1.5 left-0 hidden size-3.5 items-center justify-center sm:flex">
-                                                    <div className={`size-3 rounded-full ${position.period.includes("Present") ? "bg-brand-solid" : "bg-utility-gray-400 dark:bg-utility-gray-500"}`} />
+                                                <div className="absolute top-1.5 left-0 flex size-3.5 items-center justify-center">
+                                                    <div className={`size-3 rounded-full ${position.period.includes("Present") ? "bg-utility-success-500" : "bg-utility-gray-400 dark:bg-utility-gray-500"}`} />
                                                 </div>
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
