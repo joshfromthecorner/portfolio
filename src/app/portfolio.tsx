@@ -228,7 +228,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative z-1 overflow-hidden pb-16 pt-24 md:pb-40 md:pt-40">
+            <section className="relative z-1 overflow-hidden pb-16 pt-48 md:pb-40 md:pt-64">
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
@@ -264,23 +264,23 @@ export const PortfolioPage = () => {
                             {experience.map((job, index) => (
                                 <div key={index} className="relative transition">
                                     {/* Company header with logo */}
-                                    <div className="flex items-baseline gap-6">
-                                        <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full size-12 -translate-y-1 ${job.logo ? "" : "bg-brand-secondary"}`}>
-                                            {job.logo ? (
-                                                <>
-                                                    <img src={job.logo} alt={`${job.company} logo`} className={`size-full ${job.company.includes("Albert Heijn") ? "object-contain p-1" : "object-cover"} ${job.logoDark ? "dark:hidden" : ""}`} />
-                                                    {job.logoDark && (
-                                                        <img src={job.logoDark} alt={`${job.company} logo`} className="hidden size-full object-cover dark:block" />
-                                                    )}
-                                                </>
-                                            ) : (
-                                                <Briefcase02 className="size-6 text-brand-solid" />
-                                            )}
+                                    <div className="flex flex-col gap-4">
+                                        <div className="flex items-center gap-6">
+                                            <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full size-12 ${job.logo ? "" : "bg-brand-secondary"}`}>
+                                                {job.logo ? (
+                                                    <>
+                                                        <img src={job.logo} alt={`${job.company} logo`} className={`size-full ${job.company.includes("Albert Heijn") ? "object-contain p-1" : "object-cover"} ${job.logoDark ? "dark:hidden" : ""}`} />
+                                                        {job.logoDark && (
+                                                            <img src={job.logoDark} alt={`${job.company} logo`} className="hidden size-full object-cover dark:block" />
+                                                        )}
+                                                    </>
+                                                ) : (
+                                                    <Briefcase02 className="size-6 text-brand-solid" />
+                                                )}
+                                            </div>
+                                            <p className="text-lg font-semibold text-brand-solid">{job.company}</p>
                                         </div>
-                                        <div className="flex-1 flex flex-col">
-                                            <p className="text-lg font-semibold text-brand-solid leading-tight">{job.company}</p>
-                                            <p className="text-base text-tertiary mt-2">{job.description}</p>
-                                        </div>
+                                        <p className="text-base text-tertiary">{job.description}</p>
                                     </div>
 
                                     {/* Positions with timeline */}
