@@ -252,7 +252,7 @@ export const PortfolioPage = () => {
                     <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
                         <Badge color="success" size="md" className="mb-6">
-                            <span className="mr-0.5 inline-block size-2 rounded-full bg-utility-success-500" />
+                            <span className="mr-1 inline-block size-2 rounded-full bg-utility-success-500" />
                             Product Designer at Valsplat
                         </Badge>
 
@@ -398,8 +398,8 @@ export const PortfolioPage = () => {
                                                     <div className="absolute top-2.5 left-1.5 block w-0.5 bg-border-secondary" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
-                                                <div className="absolute top-1.5 left-0 flex size-3.5 items-center justify-center">
-                                                    <div className={`size-3 rounded-full ${position.period.includes("Present") ? "bg-utility-success-500" : "bg-utility-gray-400 dark:bg-utility-gray-500"}`} />
+                                                <div className="absolute top-2 left-0.5 flex size-2 items-center justify-center">
+                                                    <div className={`size-2 rounded-full ${position.period.includes("Present") ? "bg-utility-success-500" : "bg-utility-gray-400 dark:bg-utility-gray-500"}`} />
                                                 </div>
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
