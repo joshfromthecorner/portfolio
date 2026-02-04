@@ -264,8 +264,8 @@ export const PortfolioPage = () => {
                             {experience.map((job, index) => (
                                 <div key={index} className="relative transition">
                                     {/* Company header with logo */}
-                                    <div className="flex gap-6">
-                                        <div className={`flex shrink-0 items-start justify-center overflow-hidden rounded-full size-12 ${job.logo ? "" : "bg-brand-secondary"}`}>
+                                    <div className="flex items-center gap-6">
+                                        <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full size-12 ${job.logo ? "" : "bg-brand-secondary"}`}>
                                             {job.logo ? (
                                                 <>
                                                     <img src={job.logo} alt={`${job.company} logo`} className={`size-full ${job.company.includes("Albert Heijn") ? "object-contain p-1" : "object-cover"} ${job.logoDark ? "dark:hidden" : ""}`} />
@@ -278,7 +278,7 @@ export const PortfolioPage = () => {
                                             )}
                                         </div>
                                         <div className="flex-1 flex flex-col">
-                                            <p className="text-base font-semibold text-brand-solid">{job.company}</p>
+                                            <p className="text-lg font-semibold text-brand-solid">{job.company}</p>
                                             <p className="text-base text-tertiary mt-2">{job.description}</p>
                                         </div>
                                     </div>
