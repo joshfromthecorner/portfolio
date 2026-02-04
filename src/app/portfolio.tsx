@@ -264,8 +264,8 @@ export const PortfolioPage = () => {
                             {experience.map((job, index) => (
                                 <div key={index} className="relative transition">
                                     {/* Company header with logo */}
-                                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-                                        <div className="flex items-center gap-3 sm:contents">
+                                    <div className="flex flex-col gap-4">
+                                        <div className="flex items-center gap-6">
                                             <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full size-12 ${job.logo ? "" : "bg-brand-secondary"}`}>
                                                 {job.logo ? (
                                                     <>
@@ -278,12 +278,9 @@ export const PortfolioPage = () => {
                                                     <Briefcase02 className="size-6 text-brand-solid" />
                                                 )}
                                             </div>
-                                            <p className="text-base font-semibold text-brand-solid sm:hidden">{job.company}</p>
+                                            <p className="text-base font-semibold text-brand-solid">{job.company}</p>
                                         </div>
-                                        <div className="flex-1">
-                                            <p className="hidden text-base font-semibold text-brand-solid sm:block">{job.company}</p>
-                                            <p className="text-base text-tertiary sm:mt-2">{job.description}</p>
-                                        </div>
+                                        <p className="text-base text-tertiary">{job.description}</p>
                                     </div>
 
                                     {/* Positions with timeline */}
