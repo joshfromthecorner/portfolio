@@ -211,7 +211,7 @@ export const PortfolioPage = () => {
             <div
                 className="pointer-events-none fixed inset-0 z-0 hidden dark:block"
                 style={{
-                    background: "radial-gradient(125% 125% at 50% 90%, #09090b 40%, rgba(23, 92, 211, 0.6) 100%)",
+                    background: "radial-gradient(125% 125% at 50% 90%, #09090b 40%, rgba(21, 112, 239, 0.5) 100%)",
                 }}
             />
 
