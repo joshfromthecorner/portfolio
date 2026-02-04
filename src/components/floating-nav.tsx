@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Briefcase02, Home01, Mail01, MessageChatCircle, User01 } from "@untitledui/icons";
 import { cx } from "@/utils/cx";
 
@@ -16,6 +17,24 @@ interface FloatingNavProps {
 }
 
 export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
+    const navRef = useRef<HTMLElement>(null);
+    const [isSide, setIsSide] = useState(false);
+
+    useEffect(() => {
+        const checkFit = () => {
+            // The side position: left = 50% + 25rem + 5rem = 50% + 480px
+            // Nav needs to fit within viewport width
+            const navWidth = navRef.current?.offsetWidth ?? 60;
+            const sideLeft = window.innerWidth / 2 + 480;
+            const fits = sideLeft + navWidth + 24 <= window.innerWidth; // 24px right margin
+            setIsSide(fits);
+        };
+
+        checkFit();
+        window.addEventListener("resize", checkFit);
+        return () => window.removeEventListener("resize", checkFit);
+    }, []);
+
     const handleClick = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -25,9 +44,13 @@ export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
 
     return (
         <nav
+            ref={navRef}
             className={cx(
-                "fixed bottom-6 left-6 z-50 md:left-[calc(50%+25rem+5rem)] md:top-1/2 md:bottom-auto md:-translate-y-1/2",
-                "flex flex-row gap-1 md:flex-col rounded-xl bg-secondary_alt p-1.5 ring-1 ring-secondary ring-inset",
+                "fixed z-50",
+                isSide
+                    ? "left-[calc(50%+25rem+5rem)] top-1/2 -translate-y-1/2 flex-col"
+                    : "bottom-6 left-1/2 -translate-x-1/2 flex-row",
+                "flex gap-1 rounded-xl bg-secondary_alt p-1.5 ring-1 ring-secondary ring-inset",
                 "shadow-lg backdrop-blur-sm",
             )}
         >
@@ -46,7 +69,8 @@ export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
                         )}
                     >
                         <item.icon className="size-5" />
-                        <span className="hidden sm:inline">{item.label}</span>
+                        {isSide && <span>{item.label}</span>}
+                        {!isSide && <span className="hidden sm:inline">{item.label}</span>}
                     </button>
                 );
             })}
