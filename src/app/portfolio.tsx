@@ -295,7 +295,9 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-[3.5px] block w-px bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-0 flex w-2 justify-center" style={{ height: "calc(100% + 2rem)" }}>
+                                                        <div className="w-px bg-utility-gray-400 dark:bg-utility-gray-500 h-full" />
+                                                    </div>
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
@@ -322,7 +324,7 @@ export const PortfolioPage = () => {
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden"
+                                                                className="overflow-hidden pb-4"
                                                             >
                                                                 <div className="aspect-video overflow-hidden rounded-lg">
                                                                     <img
