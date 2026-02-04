@@ -228,7 +228,7 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative z-1 overflow-hidden pb-16 pt-24 md:pb-24 md:pt-40">
+            <section className="relative z-1 overflow-hidden pb-16 pt-24 md:pb-40 md:pt-40">
 
                 <div className="relative mx-auto max-w-6xl px-4 md:px-8">
                     <div className="flex flex-col items-start">
@@ -289,7 +289,7 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-border-secondary" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
