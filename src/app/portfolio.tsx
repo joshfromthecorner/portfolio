@@ -231,7 +231,7 @@ export const PortfolioPage = () => {
                                 <img
                                     src="/josh-profile.jpg"
                                     alt="Joshua - Product Designer"
-                                    className="w-48 rounded-sm object-cover md:w-64"
+                                    className="w-28 rounded-sm object-cover md:w-44"
                                 />
                             </div>
                         </div>
@@ -239,7 +239,7 @@ export const PortfolioPage = () => {
                         <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
                         <Badge color="success" size="lg" className="mb-6">
-                            <span className="relative mr-1.5 inline-flex size-2 items-center justify-center">
+                            <span className="relative mr-2 inline-flex size-2 items-center justify-center">
                                 <span className="absolute inset-0 z-0 animate-ping rounded-full bg-utility-success-500 opacity-75" />
                                 <span className="relative z-10 size-2 rounded-full bg-utility-success-500" />
                             </span>
@@ -247,7 +247,7 @@ export const PortfolioPage = () => {
                         </Badge>
 
                         {/* Heading */}
-                        <h1 className="max-w-[800px] text-[28px] md:text-[44px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-[800px] text-[19px] md:text-[35px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
@@ -286,7 +286,7 @@ export const PortfolioPage = () => {
                                             </div>
                                             <p className="text-lg font-semibold text-brand-solid">{job.company}</p>
                                         </div>
-                                        <p className="text-lg text-tertiary pl-18 max-w-prose">{job.description}</p>
+                                        <p className="text-lg text-tertiary sm:pl-18 max-w-prose">{job.description}</p>
                                     </div>
 
                                     {/* Positions with timeline */}
@@ -318,11 +318,11 @@ export const PortfolioPage = () => {
 
                                                 {/* Position project cards */}
                                                 {position.projects && position.projects.length > 0 && (
-                                                    <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                                                    <div className="mt-4 grid gap-4">
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden rounded-xl bg-secondary_alt shadow-sm ring-1 ring-secondary ring-inset backdrop-blur-sm"
+                                                                className="overflow-hidden rounded-xl bg-white dark:bg-secondary_alt shadow-sm ring-1 ring-secondary ring-inset backdrop-blur-sm"
                                                             >
                                                                 <div className="aspect-video overflow-hidden">
                                                                     <img
@@ -393,11 +393,15 @@ export const PortfolioPage = () => {
                             
                             {/* Profile Image */}
                             <div className="order-1 flex items-start justify-center lg:order-2 lg:justify-end">
-                                <img
-                                    src="/josh-profile.jpg"
-                                    alt="Joshua - Product Designer"
-                                    className="w-full max-w-md rounded-2xl object-cover shadow-lg"
-                                />
+                                <div className="rotate-[-5deg] transform">
+                                    <div className="rounded-lg bg-white p-2 shadow-lg">
+                                        <img
+                                            src="/josh-profile.jpg"
+                                            alt="Joshua - Product Designer"
+                                            className="w-full max-w-md rounded-sm object-cover"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
