@@ -289,7 +289,7 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-border-secondary" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-utility-gray-200 dark:bg-utility-gray-700" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
