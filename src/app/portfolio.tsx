@@ -150,8 +150,8 @@ const testimonials = [
 const JoshuaLogo = () => {
     return (
         <>
-            <img src="/cloud-logo-white.svg" alt="Joshua" className="h-6 w-auto dark:hidden" />
-            <img src="/cloud-logo-dark.svg" alt="Joshua" className="hidden h-6 w-auto dark:block" />
+            <img src="/joshua-cloud-logo-dark.svg" alt="Joshua" className="h-6 w-auto dark:hidden" />
+            <img src="/joshua-cloud-logo-light.svg" alt="Joshua" className="hidden h-6 w-auto dark:block" />
         </>
     );
 };
@@ -322,7 +322,7 @@ export const PortfolioPage = () => {
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden rounded-xl bg-white dark:bg-secondary_alt shadow-sm ring-1 ring-secondary ring-inset backdrop-blur-sm p-5"
+                                                                className="overflow-hidden rounded-xl ring-1 ring-secondary ring-inset p-5"
                                                             >
                                                                 <div className="aspect-video overflow-hidden rounded-lg">
                                                                     <img
