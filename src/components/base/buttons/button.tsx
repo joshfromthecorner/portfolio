@@ -50,7 +50,7 @@ export const styles = {
     colors: {
         primary: {
             root: [
-                "bg-brand-solid text-white shadow-xs-skeumorphic ring-1 ring-transparent ring-inset hover:bg-brand-solid_hover data-loading:bg-brand-solid_hover",
+                "bg-utility-gray-900 dark:bg-utility-gray-100 text-white dark:text-utility-gray-900 shadow-xs-skeumorphic ring-1 ring-transparent ring-inset hover:bg-utility-gray-800 dark:hover:bg-utility-gray-200 data-loading:bg-utility-gray-800",
                 // Inner border gradient
                 "before:absolute before:inset-px before:border before:border-white/12 before:mask-b-from-0%",
                 // Disabled styles
