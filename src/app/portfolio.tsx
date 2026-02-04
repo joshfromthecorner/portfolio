@@ -295,7 +295,7 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-[3px] block w-px bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
@@ -318,20 +318,20 @@ export const PortfolioPage = () => {
 
                                                 {/* Position project cards */}
                                                 {position.projects && position.projects.length > 0 && (
-                                                    <div className="mt-4 grid gap-4">
+                                                    <div className="mt-8 grid gap-4">
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden rounded-xl bg-white dark:bg-secondary_alt shadow-sm ring-1 ring-secondary ring-inset backdrop-blur-sm"
+                                                                className="overflow-hidden rounded-xl bg-white dark:bg-secondary_alt shadow-sm ring-1 ring-secondary ring-inset backdrop-blur-sm p-5"
                                                             >
-                                                                <div className="aspect-video overflow-hidden">
+                                                                <div className="aspect-video overflow-hidden rounded-lg">
                                                                     <img
                                                                         src={project.image}
                                                                         alt={project.title}
                                                                         className="size-full object-cover"
                                                                     />
                                                                 </div>
-                                                                <div className="p-4">
+                                                                <div className="pt-5">
                                                                     <h4 className="font-medium text-primary">{project.title}</h4>
                                                                     <p className="mt-1 text-lg text-tertiary max-w-prose">{project.description}</p>
                                                                 </div>
