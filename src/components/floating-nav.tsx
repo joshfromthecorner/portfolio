@@ -25,7 +25,7 @@ export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
     return (
         <nav
             className={cx(
-                "fixed bottom-6 left-6 z-50 md:left-[calc(50%+36rem+5rem)] md:top-1/2 md:bottom-auto md:-translate-y-1/2",
+                "fixed bottom-6 left-6 z-50 md:left-[calc(50%+25rem+5rem)] md:top-1/2 md:bottom-auto md:-translate-y-1/2",
                 "flex flex-row gap-1 md:flex-col rounded-xl bg-secondary_alt p-1.5 ring-1 ring-secondary ring-inset",
                 "shadow-lg backdrop-blur-sm",
             )}

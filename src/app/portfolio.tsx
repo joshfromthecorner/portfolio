@@ -219,7 +219,7 @@ export const PortfolioPage = () => {
 
             {/* Header */}
             <header className="absolute top-0 left-0 right-0 z-10 flex h-18 w-full items-center justify-center md:h-20">
-                <div className="mx-auto flex size-full max-w-6xl flex-1 items-center justify-between px-4 md:px-8">
+                <div className="mx-auto flex size-full max-w-[800px] flex-1 items-center justify-between px-4 md:px-8">
                     <div className="text-primary">
                         <JoshuaLogo />
                     </div>
@@ -228,9 +228,9 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative z-1 overflow-hidden pb-16 pt-48 md:pb-40 md:pt-64">
+            <section className="relative z-1 flex min-h-screen items-center justify-center overflow-hidden">
 
-                <div className="relative mx-auto max-w-6xl px-4 md:px-8">
+                <div className="relative mx-auto w-full max-w-[800px] px-4 md:px-8">
                     <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
                         <Badge color="success" size="lg" className="mb-6">
@@ -242,7 +242,7 @@ export const PortfolioPage = () => {
                         </Badge>
 
                         {/* Heading */}
-                        <h1 className="max-w-4xl text-[32px] md:text-[48px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-[800px] text-[32px] md:text-[48px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
@@ -256,7 +256,7 @@ export const PortfolioPage = () => {
             </section>
 
             {/* Sections */}
-            <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
+            <div className="relative z-1 mx-auto max-w-[800px] px-4 md:px-8">
 
                     {/* Experience Section */}
                     <section id="experience" className="py-16 md:py-24">
@@ -289,7 +289,7 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-utility-gray-200 dark:bg-utility-gray-700" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-[3px] block w-0.5 bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
@@ -439,7 +439,7 @@ export const PortfolioPage = () => {
 
             {/* Footer */}
             <footer className="relative z-1 pt-20 pb-24">
-                <div className="mx-auto max-w-6xl px-4 text-center text-lg text-tertiary md:px-8">
+                <div className="mx-auto max-w-[800px] px-4 text-center text-lg text-tertiary md:px-8">
                     <p>© {new Date().getFullYear()} Joshua. Made with Cursor/Claude Code and Figma. Deployed via GitHub & Vercel.</p>
                 </div>
             </footer>
