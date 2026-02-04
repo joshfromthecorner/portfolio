@@ -284,7 +284,7 @@ export const PortfolioPage = () => {
                                                     <Briefcase02 className="size-6 text-brand-solid" />
                                                 )}
                                             </div>
-                                            <p className="text-lg font-semibold text-brand-solid">{job.company}</p>
+                                            <p className="text-[20px] font-semibold text-brand-solid">{job.company}</p>
                                         </div>
                                         <p className="text-lg text-tertiary sm:pl-18 max-w-prose">{job.description}</p>
                                     </div>
@@ -295,7 +295,7 @@ export const PortfolioPage = () => {
                                             <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
-                                                    <div className="absolute top-2.5 left-[3px] block w-px bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
+                                                    <div className="absolute top-2.5 left-[3.5px] block w-px bg-utility-gray-400 dark:bg-utility-gray-500" style={{ height: "calc(100% + 2rem)" }} />
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
@@ -322,7 +322,7 @@ export const PortfolioPage = () => {
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden rounded-xl ring-1 ring-secondary ring-inset p-5"
+                                                                className="overflow-hidden"
                                                             >
                                                                 <div className="aspect-video overflow-hidden rounded-lg">
                                                                     <img
@@ -349,9 +349,21 @@ export const PortfolioPage = () => {
 
                     {/* About Section */}
                     <section id="about" className="py-16 md:py-24">
-                        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+                        <div className="grid gap-8">
+                            {/* Profile Image */}
+                            <div className="flex items-start justify-center lg:justify-start">
+                                <div className="rotate-[-5deg] transform">
+                                    <div className="rounded-lg bg-white p-2 shadow-lg">
+                                        <img
+                                            src="/bureau-sm.png"
+                                            alt="Joshua - Product Designer"
+                                            className="w-full max-w-md rounded-sm object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                             {/* Text Content */}
-                            <div className="order-2 space-y-6 text-lg leading-relaxed text-tertiary lg:order-1">
+                            <div className="space-y-6 text-lg leading-relaxed text-tertiary">
                                 <p className="text-lg font-medium text-primary max-w-prose">
                                     Hi, I'm Joshua, a Dutch Product Designer based in the Randstad, the Netherlands.
                                 </p>
@@ -391,18 +403,6 @@ export const PortfolioPage = () => {
                                 </div>
                             </div>
                             
-                            {/* Profile Image */}
-                            <div className="order-1 flex items-start justify-center lg:order-2 lg:justify-end">
-                                <div className="rotate-[-5deg] transform">
-                                    <div className="rounded-lg bg-white p-2 shadow-lg">
-                                        <img
-                                            src="/josh-profile.jpg"
-                                            alt="Joshua - Product Designer"
-                                            className="w-full max-w-md rounded-sm object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </section>
 
