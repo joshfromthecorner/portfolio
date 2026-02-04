@@ -266,7 +266,7 @@ export const PortfolioPage = () => {
 
                     {/* Experience Section */}
                     <section id="experience" className="py-16 md:py-24">
-                        <div className="space-y-8">
+                        <div className="space-y-12">
                             {experience.map((job, index) => (
                                 <div key={index} className="relative transition">
                                     {/* Company header with logo */}
@@ -292,14 +292,15 @@ export const PortfolioPage = () => {
                                     {/* Positions with timeline */}
                                     <div className="mt-6 sm:pl-18">
                                         {job.positions.map((position, posIndex) => (
-                                            <div key={posIndex} className={`relative pl-8 ${posIndex > 0 ? "mt-8" : ""}`}>
+                                            <div key={posIndex} className={`relative ${job.positions.length > 1 ? "pl-8" : ""} ${posIndex > 0 ? "mt-8" : ""}`}>
                                                 {/* Timeline line connecting positions */}
                                                 {job.positions.length > 1 && posIndex < job.positions.length - 1 && (
                                                     <div className="absolute top-2.5 left-0 flex w-2 justify-center" style={{ height: "calc(100% + 2rem)" }}>
                                                         <div className="w-px bg-utility-gray-400 dark:bg-utility-gray-500 h-full" />
                                                     </div>
                                                 )}
-                                                {/* Timeline dot */}
+                                                {/* Timeline dot - only show when multiple positions */}
+                                                {job.positions.length > 1 && (
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
                                                     {position.period.includes("Present") ? (
                                                         <span className="relative inline-flex size-2 items-center justify-center">
@@ -310,9 +311,10 @@ export const PortfolioPage = () => {
                                                         <div className="size-2 rounded-full bg-utility-gray-400 dark:bg-utility-gray-500" />
                                                     )}
                                                 </div>
+                                                )}
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
-                                                    <h3 className="font-semibold text-primary">{position.role}</h3>
+                                                    <h3 className="text-[18px] font-semibold text-primary">{position.role}</h3>
                                                     <span className="text-base text-tertiary">
                                                         {position.period}
                                                     </span>
@@ -334,7 +336,7 @@ export const PortfolioPage = () => {
                                                                     />
                                                                 </div>
                                                                 <div className="pt-5">
-                                                                    <h4 className="font-medium text-primary">{project.title}</h4>
+                                                                    <h4 className="text-[18px] font-medium text-primary">{project.title}</h4>
                                                                     <p className="mt-1 text-lg text-tertiary max-w-prose">{project.description}</p>
                                                                 </div>
                                                             </div>
