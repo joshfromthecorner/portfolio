@@ -247,7 +247,7 @@ export const PortfolioPage = () => {
                         </Badge>
 
                         {/* Heading */}
-                        <h1 className="max-w-[800px] text-[32px] md:text-[48px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-[800px] text-[28px] md:text-[44px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
@@ -268,7 +268,7 @@ export const PortfolioPage = () => {
                     <section id="experience" className="py-16 md:py-24">
                         <div className="space-y-8">
                             {experience.map((job, index) => (
-                                <div key={index} className="relative rounded-xl bg-secondary_alt p-6 shadow-lg ring-1 ring-secondary ring-inset backdrop-blur-sm transition">
+                                <div key={index} className="relative p-6 transition">
                                     {/* Company header with logo */}
                                     <div className="flex flex-col gap-4">
                                         <div className="flex items-center gap-6">
@@ -322,7 +322,7 @@ export const PortfolioPage = () => {
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden rounded-lg border border-primary bg-primary"
+                                                                className="overflow-hidden rounded-xl bg-secondary_alt shadow-lg ring-1 ring-secondary ring-inset backdrop-blur-sm"
                                                             >
                                                                 <div className="aspect-video overflow-hidden">
                                                                     <img
