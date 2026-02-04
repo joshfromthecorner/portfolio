@@ -268,7 +268,7 @@ export const PortfolioPage = () => {
                     <section id="experience" className="py-16 md:py-24">
                         <div className="space-y-8">
                             {experience.map((job, index) => (
-                                <div key={index} className="relative p-6 transition">
+                                <div key={index} className="relative transition">
                                     {/* Company header with logo */}
                                     <div className="flex flex-col gap-4">
                                         <div className="flex items-center gap-6">
@@ -322,7 +322,7 @@ export const PortfolioPage = () => {
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden rounded-xl bg-secondary_alt shadow-lg ring-1 ring-secondary ring-inset backdrop-blur-sm"
+                                                                className="overflow-hidden rounded-xl bg-secondary_alt shadow-sm ring-1 ring-secondary ring-inset backdrop-blur-sm"
                                                             >
                                                                 <div className="aspect-video overflow-hidden">
                                                                     <img
