@@ -195,7 +195,7 @@ const ThemeToggle = () => {
     );
 };
 
-const sectionIds = ["experience", "about", "testimonials", "contact"];
+const sectionIds = ["hero", "experience", "about", "testimonials", "contact"];
 
 export const PortfolioPage = () => {
     const activeSection = useActiveSection(sectionIds);
@@ -228,10 +228,22 @@ export const PortfolioPage = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="relative z-1 flex min-h-screen items-center justify-center overflow-hidden">
+            <section id="hero" className="relative z-1 flex min-h-screen items-center justify-center overflow-hidden">
 
                 <div className="relative mx-auto w-full max-w-[800px] px-4 md:px-8">
-                    <div className="flex flex-col items-start">
+                    <div className="flex flex-col items-center">
+                        {/* Polaroid Photo */}
+                        <div className="mb-8 rotate-[20deg] transform">
+                            <div className="rounded-lg bg-white p-2 shadow-lg">
+                                <img
+                                    src="/josh-profile.jpg"
+                                    alt="Joshua - Product Designer"
+                                    className="w-48 rounded-sm object-cover md:w-64"
+                                />
+                            </div>
+                        </div>
+                        
+                        <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
                         <Badge color="success" size="lg" className="mb-6">
                             <span className="relative mr-1.5 inline-flex size-2 items-center justify-center">
@@ -251,6 +263,7 @@ export const PortfolioPage = () => {
                             Experienced working in scrum product development teams across a range of sectors, including PostNL, Sunweb, BNG Bank, OVpay, NVM, Air France–KLM Cargo, Albert Heijn, and the Dutch Ministry of Health.
                         </p>
 
+                        </div>
                     </div>
                 </div>
             </section>

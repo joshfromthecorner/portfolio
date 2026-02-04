@@ -1,9 +1,10 @@
 "use client";
 
-import { Briefcase02, Mail01, MessageChatCircle, User01 } from "@untitledui/icons";
+import { Briefcase02, Home01, Mail01, MessageChatCircle, User01 } from "@untitledui/icons";
 import { cx } from "@/utils/cx";
 
 const navItems = [
+    { id: "hero", label: "Home", icon: Home01 },
     { id: "experience", label: "Work", icon: Briefcase02 },
     { id: "about", label: "About", icon: User01 },
     { id: "testimonials", label: "Testimonials", icon: MessageChatCircle },
