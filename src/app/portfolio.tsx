@@ -273,13 +273,13 @@ export const PortfolioPage = () => {
             {/* Tabs Section */}
             <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
                 <Tabs selectedKey={selectedTab} onSelectionChange={setSelectedTab}>
-                    <Tabs.List type="button-border" size="md" fullWidth items={tabItems}>
-                        {(tab) => (
+                    <Tabs.List type="button-border" size="md" fullWidth items={tabItems.map(({ icon, ...rest }) => rest)}>
+                        {tabItems.map((tab) => (
                             <Tabs.Item key={tab.id} id={tab.id}>
                                 <tab.icon className="size-5" />
                                 {tab.label}
                             </Tabs.Item>
-                        )}
+                        ))}
                     </Tabs.List>
 
                     {/* About Tab */}
