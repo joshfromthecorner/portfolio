@@ -234,7 +234,7 @@ export const PortfolioPage = () => {
                     <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
                         <Badge color="success" size="lg" className="mb-6">
-                            <span className="relative mr-0.5 inline-flex size-2 items-center justify-center">
+                            <span className="relative mr-1 inline-flex size-2 items-center justify-center">
                                 <span className="absolute inset-0 z-0 animate-ping rounded-full bg-utility-success-500 opacity-75" />
                                 <span className="relative z-10 size-2 rounded-full bg-utility-success-500" />
                             </span>
@@ -262,7 +262,7 @@ export const PortfolioPage = () => {
                     <section id="experience" className="scroll-mt-20 py-16 md:py-24">
                         <div className="space-y-8">
                             {experience.map((job, index) => (
-                                <div key={index} className="relative p-6 transition">
+                                <div key={index} className="relative transition">
                                     {/* Company header with logo */}
                                     <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
                                         <div className="flex items-center gap-3 sm:contents">
