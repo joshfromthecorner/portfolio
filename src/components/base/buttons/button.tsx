@@ -50,13 +50,13 @@ export const styles = {
     colors: {
         primary: {
             root: [
-                "bg-utility-gray-900 dark:bg-utility-gray-100 text-white dark:text-utility-gray-900 shadow-xs-skeumorphic ring-1 ring-transparent ring-inset hover:bg-utility-gray-800 dark:hover:bg-utility-gray-200 data-loading:bg-utility-gray-800",
+                "bg-utility-brand-600 dark:bg-utility-brand-500 text-white shadow-xs-skeumorphic ring-1 ring-transparent ring-inset hover:bg-utility-brand-700 dark:hover:bg-utility-brand-600 data-loading:bg-utility-brand-700",
                 // Inner border gradient
                 "before:absolute before:inset-px before:border before:border-white/12 before:mask-b-from-0%",
                 // Disabled styles
                 "disabled:bg-disabled disabled:shadow-xs disabled:ring-disabled_subtle",
                 // Icon styles
-                "*:data-icon:text-button-primary-icon hover:*:data-icon:text-button-primary-icon_hover",
+                "*:data-icon:text-white hover:*:data-icon:text-white",
             ].join(" "),
         },
         secondary: {

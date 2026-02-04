@@ -150,7 +150,7 @@ const testimonials = [
 const JoshuaLogo = () => {
     return (
         <div className="flex items-center gap-0">
-            <img src="/avatar-josh-hq.png" alt="Joshua" className="size-12 rounded-full object-cover" />
+            <img src="/avatar-josh-hq.png" alt="Joshua" className="size-10 rounded-full object-cover" />
             <svg width="75" height="24" viewBox="0 0 75 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M71.5126 20.5755L71.3877 18.2288V14.1595C71.3877 13.3107 71.2962 12.6034 71.1131 12.0375C70.9467 11.455 70.6638 11.0139 70.2643 10.7144C69.8815 10.3981 69.3656 10.24 68.7165 10.24C68.1173 10.24 67.5931 10.3649 67.1437 10.6145C66.6943 10.8642 66.3115 11.2553 65.9953 11.7879L63.5487 10.8891C63.815 10.3399 64.1645 9.83227 64.5973 9.36625C65.0466 8.8836 65.6042 8.5008 66.2699 8.21786C66.9523 7.93493 67.7678 7.79346 68.7165 7.79346C69.9314 7.79346 70.9467 8.03479 71.7622 8.51744C72.5777 8.98346 73.1769 9.65751 73.5597 10.5396C73.9591 11.4217 74.1588 12.4869 74.1588 13.7351L74.084 20.5755H71.5126ZM67.9176 20.8751C66.4197 20.8751 65.2547 20.5423 64.4225 19.8765C63.607 19.2108 63.1992 18.2704 63.1992 17.0555C63.1992 15.7573 63.6319 14.767 64.4974 14.0846C65.3795 13.4023 66.6028 13.0611 68.1673 13.0611H71.5126V15.2081H69.066C67.9509 15.2081 67.1686 15.3662 66.7193 15.6824C66.2699 15.982 66.0452 16.4147 66.0452 16.9806C66.0452 17.4632 66.2366 17.846 66.6194 18.129C67.0189 18.3953 67.5681 18.5284 68.2671 18.5284C68.8996 18.5284 69.4488 18.3869 69.9148 18.104C70.3808 17.8211 70.7386 17.4466 70.9883 16.9806C71.2546 16.5146 71.3877 15.9903 71.3877 15.4078H72.2116C72.2116 17.1054 71.8704 18.4452 71.188 19.4271C70.5056 20.3925 69.4155 20.8751 67.9176 20.8751Z" fill="currentColor"/>
                 <path d="M59.2102 20.5755L59.0604 18.2787V8.09302H61.8315V20.5755H59.2102ZM50.5723 14.4841V8.09302H53.3683V14.4841H50.5723ZM53.3683 14.4841C53.3683 15.466 53.4849 16.2316 53.7179 16.7808C53.9509 17.3301 54.2671 17.7129 54.6665 17.9292C55.0826 18.1456 55.5569 18.2538 56.0895 18.2538C57.0382 18.2704 57.7705 17.9625 58.2865 17.3301C58.8024 16.6976 59.0604 15.7906 59.0604 14.6089H60.1089C60.1089 15.9237 59.9092 17.0555 59.5097 18.0041C59.1269 18.9362 58.5777 19.6518 57.862 20.1511C57.163 20.6338 56.3142 20.8751 55.3156 20.8751C54.3337 20.8751 53.4848 20.6754 52.7692 20.2759C52.0702 19.8765 51.5293 19.2524 51.1465 18.4036C50.7637 17.5548 50.5723 16.4646 50.5723 15.1331V14.4841H53.3683Z" fill="currentColor"/>
@@ -234,7 +234,7 @@ export const PortfolioPage = () => {
                     <div className="flex flex-col items-start">
                         {/* Badge/Pill */}
                         <Badge color="success" size="lg" className="mb-6">
-                            <span className="relative mr-1 inline-flex size-2 items-center justify-center">
+                            <span className="relative mr-1.5 inline-flex size-2 items-center justify-center">
                                 <span className="absolute inset-0 z-0 animate-ping rounded-full bg-utility-success-500 opacity-75" />
                                 <span className="relative z-10 size-2 rounded-full bg-utility-success-500" />
                             </span>
@@ -259,12 +259,12 @@ export const PortfolioPage = () => {
             <div className="relative z-1 mx-auto max-w-6xl px-4 md:px-8">
 
                     {/* Experience Section */}
-                    <section id="experience" className="scroll-mt-20 py-16 md:py-24">
+                    <section id="experience" className="py-16 md:py-24">
                         <div className="space-y-8">
                             {experience.map((job, index) => (
                                 <div key={index} className="relative transition">
                                     {/* Company header with logo */}
-                                    <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                                         <div className="flex items-center gap-3 sm:contents">
                                             <div className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full size-12 ${job.logo ? "" : "bg-brand-secondary"}`}>
                                                 {job.logo ? (
@@ -296,7 +296,14 @@ export const PortfolioPage = () => {
                                                 )}
                                                 {/* Timeline dot */}
                                                 <div className="absolute top-2 left-0 flex size-2 items-center justify-center">
-                                                    <div className={`size-2 rounded-full ${position.period.includes("Present") ? "bg-utility-success-500" : "bg-utility-gray-400 dark:bg-utility-gray-500"}`} />
+                                                    {position.period.includes("Present") ? (
+                                                        <span className="relative inline-flex size-2 items-center justify-center">
+                                                            <span className="absolute inset-0 z-0 animate-ping rounded-full bg-utility-success-500 opacity-75" />
+                                                            <span className="relative z-10 size-2 rounded-full bg-utility-success-500" />
+                                                        </span>
+                                                    ) : (
+                                                        <div className="size-2 rounded-full bg-utility-gray-400 dark:bg-utility-gray-500" />
+                                                    )}
                                                 </div>
 
                                                 <div className="flex flex-wrap items-start justify-between gap-2">
@@ -338,7 +345,7 @@ export const PortfolioPage = () => {
                     </section>
 
                     {/* About Section */}
-                    <section id="about" className="scroll-mt-20 py-16 md:py-24">
+                    <section id="about" className="py-16 md:py-24">
                         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                             {/* Text Content */}
                             <div className="order-2 space-y-6 text-base leading-relaxed text-tertiary lg:order-1">
@@ -393,7 +400,7 @@ export const PortfolioPage = () => {
                     </section>
 
                     {/* Testimonials Section */}
-                    <section id="testimonials" className="scroll-mt-20 py-16 md:py-24">
+                    <section id="testimonials" className="py-16 md:py-24">
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="flex flex-col rounded-2xl bg-secondary p-6">
@@ -411,7 +418,7 @@ export const PortfolioPage = () => {
                     </section>
 
                     {/* Contact Section */}
-                    <section id="contact" className="scroll-mt-20 py-16 md:py-24">
+                    <section id="contact" className="py-16 md:py-24">
                         <div className="rounded-2xl bg-secondary p-8 text-center md:p-12">
                             <p className="text-base font-semibold text-primary">Let&apos;s work together</p>
                             <p className="mx-auto mt-3 max-w-lg text-base text-tertiary">

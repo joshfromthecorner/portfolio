@@ -18,7 +18,7 @@ export const FloatingNav = ({ activeSection }: FloatingNavProps) => {
     const handleClick = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };
 
