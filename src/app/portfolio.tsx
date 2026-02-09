@@ -247,7 +247,7 @@ export const PortfolioPage = () => {
                         </Badge>
 
                         {/* Heading */}
-                        <h1 className="max-w-[800px] text-[27px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-[800px] text-[35px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
