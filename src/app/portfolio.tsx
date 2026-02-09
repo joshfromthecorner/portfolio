@@ -247,7 +247,7 @@ export const PortfolioPage = () => {
                         </Badge>
 
                         {/* Heading */}
-                        <h1 className="max-w-[800px] text-[35px] font-semibold leading-tight tracking-tight text-primary">
+                        <h1 className="max-w-[800px] text-[27px] font-semibold leading-tight tracking-tight text-primary">
                             Helping teams create meaningful products through research-driven design
                         </h1>
 
@@ -368,36 +368,21 @@ export const PortfolioPage = () => {
                             </div>
                             {/* Text Content */}
                             <div className="space-y-6 text-lg leading-relaxed text-tertiary">
-                                <p className="font-semibold text-primary">My background</p>
-                                
-                                <p className="max-w-prose">
-                                    I enjoy tackling diverse design challenges and focus on bringing ideas to life, whether that's solving complex problems for clients or exploring DIY projects at home (I'm currently busy building my own furniture).
-                                </p>
-                                
-                                <p className="max-w-prose">
-                                    My design journey started at a Graphic Design college. During my internships, I worked on digital advertising for brands like KPN and MediaMarkt. At first, I was proud of creating these campaigns, but over time I realized that people don't necessarily enjoy being interrupted by ads while reading the news. That insight pushed me toward creating products people genuinely love to use.
-                                </p>
-                                
-                                <p className="max-w-prose">
-                                    After graduating, I went on to study Communication & Multimedia Design (BSc) in Rotterdam. During this period, I completed an internship at Air France - KLM, which also marked my first encounter with Valsplat, as they were working together at the time. Little did I know that I would end up working at Valsplat myself, now already for five years.
-                                </p>
-                                
-                                <p className="max-w-prose">
-                                    For my graduation project, I completed an internship at Ahold Delhaize, working on the Albert Heijn app. I graduated with a grade of 10 for my thesis. Shortly after, while looking for an open role, I heard through a former colleague at KLM that Valsplat was looking for a new designer. Things moved quickly from there.
-                                </p>
-                                
-                                <p className="max-w-prose">
-                                    I truly enjoy working at Valsplat and have learned a great deal along the way. I'm grateful for the opportunities I've been given. Through my work at Valsplat, I've gained extensive experience collaborating in Agile/Scrum product development teams across a wide range of sectors.
-                                </p>
-                                
-                                <div className="space-y-4 pt-4">
+                                <div className="space-y-4">
+                                    <p className="font-semibold text-primary">My background</p>
+                                    <p className="max-w-prose">
+                                        I enjoy tackling diverse design challenges and focus on bringing ideas to life, whether that's solving complex problems for clients or exploring DIY projects at home (I'm currently busy building my own furniture). My design journey started at a Graphic Design college. During my internships, I worked on digital advertising for brands like KPN and MediaMarkt. At first, I was proud of creating these campaigns, but over time I realized that people don't necessarily enjoy being interrupted by ads while reading the news. That insight pushed me toward creating products people genuinely love to use. After graduating, I went on to study Communication & Multimedia Design (BSc) in Rotterdam. During this period, I completed an internship at Air France - KLM, which also marked my first encounter with Valsplat, as they were working together at the time. Little did I know that I would end up working at Valsplat myself, now already for five years. For my graduation project, I completed an internship at Ahold Delhaize, working on the Albert Heijn app. I graduated with a grade of 10 for my thesis. Shortly after, while looking for an open role, I heard through a former colleague at KLM that Valsplat was looking for a new designer. Things moved quickly from there. I truly enjoy working at Valsplat and have learned a great deal along the way. I'm grateful for the opportunities I've been given. Through my work at Valsplat, I've gained extensive experience collaborating in Agile/Scrum product development teams across a wide range of sectors.
+                                    </p>
+                                </div>
+
+                                <div className="space-y-4">
                                     <p className="font-semibold text-primary">What do I enjoy the most in my work?</p>
                                     <p className="max-w-prose">
                                         I love meeting new people and working together with them, especially from different countries. Over the past few years, I have often gotten the opportunity to work with people from different backgrounds and nationalities. I discovered working with people from various backgrounds and cultures has been so much fun and was beneficial for my personal development. It has exposed me to new ideas, perspectives, and ways of life. It makes you look different from the things you are used to, therefore it also helps creativity in product development teams. Working with people from different cultures has challenged my assumptions and encouraged critical thinking, leading to personal growth and development.
                                     </p>
                                 </div>
-                                
-                                <div className="space-y-4 pt-4">
+
+                                <div className="space-y-4">
                                     <p className="font-semibold text-primary">What I like about Product Design/UX?</p>
                                     <p className="max-w-prose">
                                         The opportunity to make a positive impact and I get to see the impact of what I do. Seeing my design proposals used by end-users during the usability test is rewarding. Knowing that it is going to be used by millions of users makes it even more exciting. Solving complex problems. Multi-faceted problem-solving never gets boring. UX design involves tackling challenging problems and finding creative solutions that meet the needs of users and stakeholders. The opportunity to learn and grow. The field of UX is constantly evolving, and we as designers have the opportunity to learn new skills and techniques.
