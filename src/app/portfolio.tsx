@@ -328,11 +328,11 @@ export const PortfolioPage = () => {
                                                                 key={projectIndex}
                                                                 className="overflow-hidden pb-4"
                                                             >
-                                                                <div className="aspect-video overflow-hidden rounded-lg">
+                                                                <div className="overflow-hidden rounded-lg">
                                                                     <img
                                                                         src={project.image}
                                                                         alt={project.title}
-                                                                        className="size-full object-cover"
+                                                                        className="w-full object-contain"
                                                                     />
                                                                 </div>
                                                                 <div className="pt-5">
