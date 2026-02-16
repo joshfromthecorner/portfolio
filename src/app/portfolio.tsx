@@ -56,10 +56,10 @@ const experience = [
                 period: "Mar 2023 - Present",
                 projects: [
                     {
-                        title: "Design System",
+                        title: "AI Assistant for NVM",
                         description: "Built a comprehensive design system used across 12 products.",
                         tags: ["React", "TypeScript", "Storybook"],
-                        image: "https://images.unsplash.com/photo-1618788372246-79faff0c3742?w=600&h=400&fit=crop",
+                        image: "/thumbnail-asknvm-start.png",
                     },
                     {
                         title: "Performance Optimization",
