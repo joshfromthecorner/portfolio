@@ -57,7 +57,7 @@ const experience = [
                 projects: [
                     {
                         title: "AI Assistant for NVM",
-                        description: "Built a comprehensive design system used across 12 products.",
+                        description: "Worked on a AI LLM chat interface for NVM, concept and UI design.",
                         tags: ["React", "TypeScript", "Storybook"],
                         image: "/thumbnail-asknvm-start.png",
                     },
@@ -326,7 +326,7 @@ export const PortfolioPage = () => {
                                                         {position.projects.map((project, projectIndex) => (
                                                             <div
                                                                 key={projectIndex}
-                                                                className="overflow-hidden pb-4"
+                                                                className="overflow-hidden rounded-lg bg-white pb-4 dark:bg-neutral-800"
                                                             >
                                                                 <div className="overflow-hidden rounded-lg">
                                                                     <img
